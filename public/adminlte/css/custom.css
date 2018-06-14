@@ -1,0 +1,11 @@
+.label {margin-right:5px;margin-bottom:5px !important;display:inline-block;} #wrapper {
+    position: relative;
+}
+
+.select2 {
+    width: 100% !important;
+}
+
+textarea#notes.form-control {
+    line-height: 10px;
+}
