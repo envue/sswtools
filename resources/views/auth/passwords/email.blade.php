@@ -24,7 +24,7 @@
     <form role="form" method="POST" action="{{ url('password/email') }}">
         <input type="hidden" name="_token"value="{{ csrf_token() }}">
 
-        <div class="form-group has-feeback">
+        <div class="form-group has-feedback">
             <input type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
