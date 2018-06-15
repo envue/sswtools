@@ -19,10 +19,26 @@
             <span class="icon-bar"></span>
         </a>
 
-        
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                
+                <li class="pull-right">
+                    <a href="#logout" onclick="$('#logout').submit();">
+                        <i class="fa fa-sign-out"></i>
+                        <span class="title">@lang('quickadmin.qa_logout')</span>
+                    </a>
+                </li>
+                
+                <li class="beamerTrigger pull-right" style="position: relative">
+                    <a href="#"><i class="fa fa-bell-o"></i></a>
+                </li>
+         
+                <li class="pull-right">
+                    <a href="#"><strong><i class="fa fa-question-circle be"></i></strong></a>
+                </li>
 
-        
-
+            </ul>
+        </div>
     </nav>
 </header>
 
