@@ -173,7 +173,8 @@ class StudentsController extends Controller
         }
         
         $created_bies = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $created_by_teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$time_entries = \App\TimeEntry::whereHas('student',
+        $created_by_teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $time_entries = \App\TimeEntry::whereHas('student',
                     function ($query) use ($id) {
                         $query->where('id', $id);
                     })->get();

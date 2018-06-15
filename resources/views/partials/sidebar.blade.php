@@ -54,7 +54,7 @@
                     <li>
                         <a href="{{ route('admin.time_reports.index') }}">
                             <i class="fa fa-line-chart"></i>
-                            <span>@lang('quickadmin.time-reports.title')</span>
+                            <span>Time Overview</span>
                         </a>
                     </li>  
                 </ul>

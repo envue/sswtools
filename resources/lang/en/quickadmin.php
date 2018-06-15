@@ -1,41 +1,262 @@
 <?php
 
 return [
-		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
-		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'price' => 'Price',			'stripe-plan-id' => 'Stripe Plan ID',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'team' => 'Team',			'remember-token' => 'Remember token',			'stripe-customer-id' => 'Stripe Customer ID',			'role-until' => 'Role Until',		],	],
-		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [		],	],
-		'time-management' => [		'title' => 'Time management',		'fields' => [		],	],
-		'time-work-types' => [		'title' => 'Work types',		'fields' => [			'name' => 'Name',		],	],
-		'time-projects' => [		'title' => 'Time projects',		'fields' => [			'name' => 'Name',		],	],
-		'time-entries' => [		'title' => 'Time entries list',		'fields' => [			'start-time' => 'Start time',			'end-time' => 'End time',			'work-type' => 'Work type',			'population-type' => 'Population',			'caseload' => 'Caseload',			'student' => 'Student(s)',			'description' => 'Description',			'notes' => 'Notes',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
-		'time-reports' => [		'title' => 'Reports',		'fields' => [		],	],
-		'faq-management' => [		'title' => 'FAQ Management',		'fields' => [		],	],
-		'faq-categories' => [		'title' => 'Categories',		'fields' => [		],	],
-		'faq-questions' => [		'title' => 'Questions',		'fields' => [		],	],
-		'internal-notifications' => [		'title' => 'Notifications',		'fields' => [		],	],
-		'populations' => [		'title' => 'Populations',		'fields' => [		],	],
-		'calendar-entries' => [		'title' => 'Calendar entries',		'fields' => [		],	],
-		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
-		'teams' => [		'title' => 'Teams',		'fields' => [		],	],
-		'teams' => [		'title' => 'Teams',		'fields' => [			'name' => 'Name',		],	],
-		'students' => [		'title' => 'Students',		'fields' => [			'identifier' => 'Identifier',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
-		'admin-settings' => [		'title' => 'Admin settings',		'fields' => [		],	],
-		'reports' => [		'title' => 'Reports',		'fields' => [		],	],
-		'time-populations' => [		'title' => 'Population types',		'fields' => [		],	],
-		'faq-management' => [		'title' => 'FAQ Management',		'fields' => [		],	],
-		'faq-categories' => [		'title' => 'Categories',		'fields' => [		],	],
-		'faq-questions' => [		'title' => 'Questions',		'fields' => [		],	],
-		'content-management' => [		'title' => 'Content management',		'fields' => [		],	],
-		'content-categories' => [		'title' => 'Categories',		'fields' => [			'title' => 'Category',			'slug' => 'Slug',		],	],
-		'content-tags' => [		'title' => 'Tags',		'fields' => [			'title' => 'Tag',			'slug' => 'Slug',		],	],
-		'content-pages' => [		'title' => 'Pages',		'fields' => [			'title' => 'Title',			'category-id' => 'Categories',			'tag-id' => 'Tags',			'page-text' => 'Text',			'excerpt' => 'Excerpt',			'featured-image' => 'Featured image',			'attachments' => 'Attachments',		],	],
-		'system-admin' => [		'title' => 'System admin',		'fields' => [		],	],
-		'subscriptions' => [		'title' => 'Subscriptions',		'fields' => [		],	],
-		'payments' => [		'title' => 'Payments',		'fields' => [		],	],
-		'subscriptions' => [		'title' => 'Subscriptions',		'fields' => [		],	],
-		'payments' => [		'title' => 'Payments',		'fields' => [			'user' => 'User',			'role' => 'Role',			'payment-amount' => 'Amount',		],	],
-		'user-profiles' => [		'title' => 'User profiles',		'fields' => [			'title' => 'Title',			'num-schools' => 'Number of schools',			'profile-image' => 'Profile image',			'location' => 'Location',		],	],
+	
+	'user-management' => [
+		'title' => 'User management',
+		'fields' => [
+		],
+	],
+	
+	'roles' => [
+		'title' => 'Roles',
+		'fields' => [
+			'title' => 'Title',
+			'price' => 'Price',
+			'stripe-plan-id' => 'Stripe Plan ID',
+		],
+	],
+	
+	'users' => [
+		'title' => 'Users',
+		'fields' => [
+			'name' => 'Name',
+			'email' => 'Email',
+			'password' => 'Password',
+			'role' => 'Role',
+			'team' => 'Team',
+			'remember-token' => 'Remember token',
+			'stripe-customer-id' => 'Stripe Customer ID',
+			'role-until' => 'Role Until',
+		],
+	],
+	
+	'user-actions' => [
+		'title' => 'User actions',
+		'created_at' => 'Time',
+		'fields' => [
+		],
+	],
+	
+	'time-management' => [
+		'title' => 'Time management',
+		'fields' => [
+		],
+	],
+	
+	'time-work-types' => [
+		'title' => 'Work types',
+		'fields' => [
+			'name' => 'Name',
+		],
+	],
+	
+	'time-projects' => [
+		'title' => 'Time projects',
+		'fields' => [
+			'name' => 'Name',
+		],
+	],
+	
+	'time-entries' => [
+		'title' => 'Time entries list',
+		'fields' => [
+			'start-time' => 'Start time',
+			'end-time' => 'End time',
+			'work-type' => 'Work type',
+			'population-type' => 'Population',
+			'caseload' => 'Caseload',
+			'student' => 'Student(s)',
+			'description' => 'Description',
+			'notes' => 'Notes',
+			'created-by' => 'Created by',
+			'created-by-team' => 'Created by Team',
+		],
+	],
+	
+	'time-reports' => [
+		'title' => 'Reports',
+		'fields' => [
+		],
+	],
+	
+	'faq-management' => [
+		'title' => 'FAQ Management',
+		'fields' => [
+		],
+	],
+	
+	'faq-categories' => [
+		'title' => 'Categories',
+		'fields' => [
+		],
+	],
+	
+	'faq-questions' => [
+		'title' => 'Questions',
+		'fields' => [
+		],
+	],
+	
+	'internal-notifications' => [
+		'title' => 'Notifications',
+		'fields' => [
+		],
+	],
+	
+	'populations' => [
+		'title' => 'Populations',
+		'fields' => [
+		],
+	],
+	
+	'calendar-entries' => [
+		'title' => 'Calendar entries',
+		'fields' => [
+		],
+	],
+	
+	'teams' => [
+		'title' => 'Teams',
+		'fields' => [
+		],
+	],
+	
+	'teams' => [
+		'title' => 'Teams',
+		'fields' => [
+		],
+	],
+	
+	'teams' => [
+		'title' => 'Teams',
+		'fields' => [
+			'name' => 'Name',
+		],
+	],
+	
+	'students' => [
+		'title' => 'Students',
+		'fields' => [
+			'identifier' => 'Identifier',
+			'created-by' => 'Created by',
+			'created-by-team' => 'Created by Team',
+		],
+	],
+	
+	'admin-settings' => [
+		'title' => 'Admin settings',
+		'fields' => [
+		],
+	],
+	
+	'reports' => [
+		'title' => 'Reports',
+		'fields' => [
+		],
+	],
+	
+	'time-populations' => [
+		'title' => 'Population types',
+		'fields' => [
+		],
+	],
+	
+	'faq-management' => [
+		'title' => 'FAQ Management',
+		'fields' => [
+		],
+	],
+	
+	'faq-categories' => [
+		'title' => 'Categories',
+		'fields' => [
+		],
+	],
+	
+	'faq-questions' => [
+		'title' => 'Questions',
+		'fields' => [
+		],
+	],
+	
+	'content-management' => [
+		'title' => 'Content management',
+		'fields' => [
+		],
+	],
+	
+	'content-categories' => [
+		'title' => 'Categories',
+		'fields' => [
+			'title' => 'Category',
+			'slug' => 'Slug',
+		],
+	],
+	
+	'content-tags' => [
+		'title' => 'Tags',
+		'fields' => [
+			'title' => 'Tag',
+			'slug' => 'Slug',
+		],
+	],
+	
+	'content-pages' => [
+		'title' => 'Pages',
+		'fields' => [
+			'title' => 'Title',
+			'category-id' => 'Categories',
+			'tag-id' => 'Tags',
+			'page-text' => 'Text',
+			'excerpt' => 'Excerpt',
+			'featured-image' => 'Featured image',
+			'attachments' => 'Attachments',
+		],
+	],
+	
+	'system-admin' => [
+		'title' => 'System admin',
+		'fields' => [
+		],
+	],
+	
+	'subscriptions' => [
+		'title' => 'Subscriptions',
+		'fields' => [
+		],
+	],
+	
+	'payments' => [
+		'title' => 'Payments',
+		'fields' => [
+		],
+	],
+	
+	'subscriptions' => [
+		'title' => 'Subscriptions',
+		'fields' => [
+		],
+	],
+	
+	'payments' => [
+		'title' => 'Payments',
+		'fields' => [
+			'user' => 'User',
+			'role' => 'Role',
+			'payment-amount' => 'Amount',
+		],
+	],
+	
+	'user-profiles' => [
+		'title' => 'User profiles',
+		'fields' => [
+			'title' => 'Title',
+			'num-schools' => 'Number of schools',
+			'profile-image' => 'Profile image',
+			'location' => 'Location',
+		],
+	],
 	'qa_create' => 'Create',
 	'qa_save' => 'Save',
 	'qa_edit' => 'Edit',
@@ -280,5 +501,5 @@ return [
 	'qa_deselect_all' => 'Deselect all',
 	'qa_team-management' => 'Teams',
 	'qa_team-management-singular' => 'Team',
-	'quickadmin_title' => 'SSW Tools v 0.1',
+	'quickadmin_title' => 'SSW Tools (beta)',
 ];
