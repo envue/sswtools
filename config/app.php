@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'SSW Tools v 0.1',
+    'name' => 'SSW Tools',
 
     /*
     |--------------------------------------------------------------------------
