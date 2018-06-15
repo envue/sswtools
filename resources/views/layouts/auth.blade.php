@@ -5,20 +5,15 @@
     @include('partials.head')
 </head>
 
-<body class="page-header-fixed">
-
-    <div style="margin-top: 10%;"></div>
-
-    <div class="container-fluid">
-        @yield('content')
-    </div>
-
-    <div class="scroll-to-top"
-         style="display: none;">
-        <i class="fa fa-arrow-up"></i>
-    </div>
-
+<body class="hold-transition login-page">
+    <<div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>SSW</b>Tools</a>
+        </div>
+        <!-- /.login-logo -->
+            @yield ('content')
+    </div>        
+    
     @include('partials.javascripts')
-
 </body>
 </html>
