@@ -70,7 +70,7 @@ class SystemCalendarController extends Controller
                 'caseload'   => $time_entry->caseload,
                 'description' => $time_entry->description,
                 'student' =>$time_entry->student->pluck('id')->toArray(),
-                'title' => $time_entry->work_type->name.' - '.$time_entry->description, 
+                'title' => $time_entry->work_type->name.': '.$time_entry->description, 
                 'start' => $time_entry->start_time,
                 'end'   => $time_entry->end_time,
                 'notes' => $time_entry->notes,
