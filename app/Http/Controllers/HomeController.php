@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         
-        $timeentries = \App\TimeEntry::latest()->limit(5)->get(); 
+        $timeentries = \App\TimeEntry::with('work_type')->latest()->limit(5)->get(); 
 
         return view('home', compact( 'timeentries' ));
     }

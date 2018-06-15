@@ -9,24 +9,19 @@
                 <div class="panel-body table-responsive">
                     <table class="table table-bordered table-striped ajaxTable">
                         <thead>
-                        <tr>
-                            
-                            <th> @lang('quickadmin.time-entries.fields.description')</th> 
+                        <tr> 
                             <th> @lang('quickadmin.time-entries.fields.start-time')</th> 
                             <th> @lang('quickadmin.time-entries.fields.end-time')</th> 
-                            <th> @lang('quickadmin.time-entries.fields.notes')</th> 
-                            <th> @lang('quickadmin.time-entries.fields.caseload-student')</th> 
+                            <th> @lang('quickadmin.time-entries.fields.work-type')</th> 
+                             
                             <th>&nbsp;</th>
                         </tr>
                         </thead>
                         @foreach($timeentries as $timeentry)
-                            <tr>
-                               
-                                <td>{{ $timeentry->description }} </td> 
+                            <tr> 
                                 <td>{{ $timeentry->start_time }} </td> 
                                 <td>{{ $timeentry->end_time }} </td> 
-                                <td>{{ $timeentry->notes }} </td> 
-                                <td>{{ $timeentry->caseload_student }} </td> 
+                                <td>{{ $timeentry->work_type->name }} </td> 
                                 <td>
 
                                     @can('time_entry_view')
