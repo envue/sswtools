@@ -6,7 +6,7 @@
         <ul class="sidebar-menu">
 
             <li>
-                <select class="searchable-field form-control"></select>
+                <select style="display:none;" class="searchable-field form-control"></select>
             </li>
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
