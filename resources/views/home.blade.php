@@ -54,11 +54,5 @@
     </div>
 @endsection
 
-@section ('javascript')
-<script>
-convertfox.identify("$currentUserID", {
-	email: "$currentUserEmail"
-});
-</script>
-@stop
+
 
