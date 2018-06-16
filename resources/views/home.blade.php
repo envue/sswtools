@@ -56,7 +56,7 @@
 
 @section ('javascript')
 <script>
-    var userID = {!! $currentUserID !!};
+    var userID = {!! json_encode($currentUserID) !!};
     var userEmail = {!! $currentUserEmail !!};
     convertfox.identify(userID, {
         email: userEmail,

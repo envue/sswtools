@@ -30,7 +30,7 @@ class HomeController extends Controller
         $currentUserID = \Auth::user()->id;
 
         $currentUserEmail = \Auth::user()->email;
-
+     
         return view('home', compact( 'timeentries', 'currentUserID', 'currentUserEmail' ));
     }
 }
