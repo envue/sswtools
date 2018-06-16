@@ -7,11 +7,11 @@
         <div class="row">
             <div class="col-xs-4 col-s-3 col-md-2 form-group">
                 {!! Form::label('from','From',['class' => 'control-label']) !!}
-                {!! Form::text('from', old('from', Request::get('from', date('Y-m-d'))), ['class' => 'form-control date', 'placeholder' => '']) !!}
+                {!! Form::text('from', old('from', Request::get('from', date('m/d/Y', strtotime('-30 days')))), ['class' => 'form-control date', 'placeholder' => '']) !!}
             </div>
             <div class="col-xs-4 col-s-3 col-md-2 form-group">
                 {!! Form::label('to','To',['class' => 'control-label']) !!}
-                {!! Form::text('to', old('to', Request::get('to', date('Y-m-d'))), ['class' => 'form-control date', 'placeholder' => '']) !!}
+                {!! Form::text('to', old('to', Request::get('to', date('m/d/Y'))), ['class' => 'form-control date', 'placeholder' => '']) !!}
             </div>
             <div class="col-xs-4 col-s-3 col-md-4">
                 <label class="control-label">&nbsp;</label><br>

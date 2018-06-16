@@ -10,7 +10,7 @@ class TimeReportsController extends Controller
 {
     public function index(Request $r)
     {
-        $from = Carbon::parse($r->query('from', Carbon::now()));
+        $from = Carbon::parse($r->query('from', Carbon::now()->subDays(30)));
         $to   = Carbon::parse($r->query('to', Carbon::now()))->endOfDay();
 
         $time_entries = TimeEntry::with('work_type')
