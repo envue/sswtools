@@ -54,5 +54,13 @@
     </div>
 @endsection
 
-
+@section ('javascript')
+<script>
+    var userID = {!! $currentUserID !!};
+    var userEmail = {!! $currentUserEmail !!};
+    convertfox.identify("userID", {
+        "email": "userEmail",
+    });
+</script>
+@stop
 

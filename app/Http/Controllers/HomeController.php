@@ -27,8 +27,10 @@ class HomeController extends Controller
         
         $timeentries = \App\TimeEntry::with('work_type')->latest()->limit(5)->get(); 
 
-        
+        $currentUserID = \Auth::user()->id;
 
-        return view('home', compact( 'timeentries' ));
+        $currentUserEmail = \Auth::user()->email;
+
+        return view('home', compact( 'timeentries', 'currentUserID', 'currentUserEmail' ));
     }
 }
