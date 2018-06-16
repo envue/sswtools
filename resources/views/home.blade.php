@@ -59,7 +59,7 @@
     var userID = {!! $currentUserID !!};
     var userEmail = {!! $currentUserEmail !!};
     convertfox.identify(userID, {
-        "email": userEmail,
+        email: userEmail,
     });
 </script>
 @stop
