@@ -61,21 +61,6 @@
 </script>
 
 <script>
-(function (u, s, e, r, g) { 
-    u[r] = u[r] || [];
-    u[r].push({
-      'ug.start': new Date().getTime(), event: 'embed.js',
-    });
-    var f = s.getElementsByTagName(e)[0],
-        j = s.createElement(e);
-    j.async = true;
-    j.src = 'https://static.userguiding.com/media/user-guiding-'
-     + g + '-embedded.js';
-    f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'userGuidingLayer', '63239968ID');
-</script>
-
-<script>
 	var beamer_config = {
 		product_id : "aONXugsr3184", //DO NOT CHANGE: This is your product code on Beamer
 		//selector : "selector", /*Optional: Id, class (or list of both) of the HTML element to use as a button*/

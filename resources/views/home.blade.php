@@ -56,11 +56,14 @@
 
 @section ('javascript')
 <script>
-    var userID = {!! json_encode($currentUserID) !!};
-    var userEmail = {!! $currentUserEmail !!};
-    convertfox.identify(userID, {
-        email: userEmail,
+window.addEventListener("load", function(){
+    convertfox.identify("{!! $userID !!}", {
+        email: "{!! $userEmail !!}",
+        name: "{!! $userName !!}",
+        role: "{!! $userRole !!}",
+        team: "{!! $userTeam !!}"
     });
+});    
 </script>
 @stop
 
