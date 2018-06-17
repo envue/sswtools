@@ -3,6 +3,11 @@
 
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"/>
+<style>
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control { 
+        background-color: #fff !important; opacity: 1; 
+        }
+</style>
 <meta name="csrf-token" content="{{ csrf_token() }}"> 
 <h3 class="page-title">Calendar</h3>
 
@@ -23,7 +28,7 @@
         <div class="row">
             <div class="col-xs-12 col-md-6 form-group">
                 {!! Form::label('start_time', trans('quickadmin.time-entries.fields.start-time').'*', ['class' => 'control-label']) !!}
-                {!! Form::text('start_time', old('start_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                {!! Form::text('start_time', old('start_time'), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                 @if($errors->has('start_time'))
                     <p class="help-block">
                         {{ $errors->first('start_time') }}
@@ -32,7 +37,7 @@
             </div>
             <div class="col-xs-12 col-md-6 form-group">
                 {!! Form::label('end_time', trans('quickadmin.time-entries.fields.end-time').'*', ['class' => 'control-label']) !!}
-                {!! Form::text('end_time', old('end_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                {!! Form::text('end_time', old('end_time'), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                 @if($errors->has('end_time'))
                     <p class="help-block">
                         {{ $errors->first('end_time') }}
@@ -175,7 +180,7 @@
       <div class="row">
             <div class="col-xs-12 col-md-6 form-group">
                 {!! Form::label('start_time', trans('quickadmin.time-entries.fields.start-time').'*', ['class' => 'control-label']) !!}
-                {!! Form::text('start_time', old('start_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                {!! Form::text('start_time', old('start_time'), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                 @if($errors->has('start_time'))
                     <p class="help-block">
                         {{ $errors->first('start_time') }}
@@ -184,7 +189,7 @@
             </div>
             <div class="col-xs-12 col-md-6 form-group">
                 {!! Form::label('end_time', trans('quickadmin.time-entries.fields.end-time').'*', ['class' => 'control-label']) !!}
-                {!! Form::text('end_time', old('end_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                {!! Form::text('end_time', old('end_time'), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                 @if($errors->has('end_time'))
                     <p class="help-block">
                         {{ $errors->first('end_time') }}
@@ -332,6 +337,8 @@
             format: "{{ config('app.datetime_format_moment') }}",
             locale: "{{ App::getLocale() }}",
             sideBySide: true,
+            ignoreReadonly: true,
+            allowInputToggle: true
         });
     </script>
 
