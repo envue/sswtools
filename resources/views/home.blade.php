@@ -181,7 +181,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-6 form-group">
                     {!! Form::label('start_time', trans('quickadmin.time-entries.fields.start-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('start_time', old('start_time'), ['class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('start_time', old('start_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                     @if($errors->has('start_time'))
                         <p class="help-block">
                             {{ $errors->first('start_time') }}
@@ -190,7 +190,7 @@
                 </div>
                 <div class="col-xs-12 col-md-6 form-group">
                     {!! Form::label('end_time', trans('quickadmin.time-entries.fields.end-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('end_time', old('end_time'), ['class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('end_time', old('end_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                     @if($errors->has('end_time'))
                         <p class="help-block">
                             {{ $errors->first('end_time') }}
@@ -311,8 +311,8 @@
             </div>
         </div><!-- /.modal-body -->
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-primary pull-left']) !!}
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
         </div><!-- /.modal-footer -->
         {!! Form::close() !!}
         </div><!-- /.modal-content -->
@@ -333,7 +333,7 @@
         <div class="row">
                 <div class="col-xs-12 col-md-6 form-group">
                     {!! Form::label('start_time', trans('quickadmin.time-entries.fields.start-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('start_time', old('start_time'), ['class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('start_time', old('start_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                     @if($errors->has('start_time'))
                         <p class="help-block">
                             {{ $errors->first('start_time') }}
@@ -342,7 +342,7 @@
                 </div>
                 <div class="col-xs-12 col-md-6 form-group">
                     {!! Form::label('end_time', trans('quickadmin.time-entries.fields.end-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('end_time', old('end_time'), ['class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
+                    {!! Form::text('end_time', old('end_time'), ['onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
                     @if($errors->has('end_time'))
                         <p class="help-block">
                             {{ $errors->first('end_time') }}
@@ -464,9 +464,9 @@
             </div>
         </div><!-- /.modal-body -->
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-primary']) !!}
-            {!! Form::button(trans('quickadmin.qa_delete'), ['id' => 'eventDelete', 'class' => 'btn btn-danger']) !!}
+            {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-primary pull-left']) !!}
+            {!! Form::button(trans('quickadmin.qa_delete'), ['id' => 'eventDelete', 'class' => 'btn btn-danger pull-left']) !!}
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
         </div><!-- /.modal-footer -->
         {!! Form::close() !!}
         </div><!-- /.modal-content -->
