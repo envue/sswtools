@@ -21,7 +21,7 @@
     {!! Form::close() !!}
     <br>
     <div class ="row">
-        <div class = "col-sm-6 col-xs-12 col-md-4">
+        <div class = "col-sm-12 col-xs-12 col-md-4">
             <div class="info-box">
                 <!-- Apply any bg-* class to to the icon to color it -->
                 <span class="info-box-icon bg-green"><i class="fa fa-clock-o"></i></span>
@@ -34,7 +34,7 @@
             <!-- /.info-box -->
         </div>
         
-        <div class = "col-sm-6 col-xs-12 col-md-4">
+        <div class = "col-sm-12 col-xs-12 col-md-4">
             <div class="info-box">
                 <!-- Apply any bg-* class to to the icon to color it -->
                 <span class="info-box-icon bg-red"><i class="fa fa-warning"></i></span>
@@ -53,7 +53,7 @@
             <!-- /.info-box -->
         </div>
 
-        <div class = "col-sm-6 col-xs-12 col-md-4">
+        <div class = "col-sm-12 col-xs-12 col-md-4">
             <div class="info-box">
                 <!-- Apply any bg-* class to to the icon to color it -->
                 <span class="info-box-icon bg-aqua"><i class="fa fa-star-o"></i></span>
