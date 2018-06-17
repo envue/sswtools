@@ -57,7 +57,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                 </div>
-                <!-- box-footer -->
+                <!-- /.box-footer -->
             </div>
             <!-- /.box -->
 
@@ -137,9 +137,6 @@
                     <div id='calendar'></div>
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer">
-                </div>
-                <!-- box-footer -->
             </div>
             <!-- /.box -->
             
@@ -509,7 +506,7 @@ window.addEventListener("load", function(){
     var workTypeLabels = {!! json_encode($workTypeLabels)  !!};
     
     var ctx = document.getElementById("worktypeChart").getContext('2d');
-    var populationChart = new Chart(ctx, {
+    var workTypeChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
             labels: workTypeLabels,
@@ -539,10 +536,18 @@ window.addEventListener("load", function(){
             }]
         },
         options: {                
+            scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
             legend: {
                 display: false,
-                labels: { },
-                position: 'right'
+                labels: {
+                boxWidth: 0,
+                }
             }
         }
     });

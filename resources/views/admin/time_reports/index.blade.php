@@ -5,15 +5,15 @@
 
     {!! Form::open(['method' => 'get']) !!}
         <div class="row">
-            <div class="col-xs-4 col-s-3 col-md-2 form-group">
+            <div class="col-xs-6 col-sm-3 col-md-2 form-group">
                 {!! Form::label('from','From',['class' => 'control-label']) !!}
                 {!! Form::text('from', old('from', Request::get('from', date('m/d/Y', strtotime('-30 days')))), ['class' => 'form-control date', 'placeholder' => '']) !!}
             </div>
-            <div class="col-xs-4 col-s-3 col-md-2 form-group">
+            <div class="col-xs-6 col-sm-3 col-md-2 form-group">
                 {!! Form::label('to','To',['class' => 'control-label']) !!}
                 {!! Form::text('to', old('to', Request::get('to', date('m/d/Y'))), ['class' => 'form-control date', 'placeholder' => '']) !!}
             </div>
-            <div class="col-xs-4 col-s-3 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-6">
                 <label class="control-label">&nbsp;</label><br>
                 {!! Form::submit('Generate Report',['class' => 'btn btn-primary']) !!} &nbsp;&nbsp;&nbsp;&nbsp; {!! Form::button('Print Report', ['onclick' => 'window.print()', 'class' => 'btn btn-success']) !!}  
             </div>
