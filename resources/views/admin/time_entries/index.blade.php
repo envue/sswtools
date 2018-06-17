@@ -6,10 +6,12 @@
     @can('time_entry_create')
     <p>
         <a href="{{ route('admin.time_entries.create') }}" class="btn btn-success">@lang('quickadmin.qa_add_new')</a>
+        <!-- Upload CSV >
         @can('user_delete')
         <a href="#" class="btn btn-warning" style="margin-left:5px;" data-toggle="modal" data-target="#myModal">@lang('quickadmin.qa_csvImport')</a>
         @include('csvImport.modal', ['model' => 'TimeEntry'])
         @endcan
+        -->
     </p>
     @endcan
 
