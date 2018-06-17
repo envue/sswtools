@@ -338,7 +338,11 @@
             locale: "{{ App::getLocale() }}",
             sideBySide: true,
             ignoreReadonly: true,
-            allowInputToggle: true
+            allowInputToggle: true,
+            widgetPositioning:{
+                horizontal: 'auto',
+                vertical: 'bottom'
+            },
         });
     </script>
 
