@@ -6,6 +6,25 @@
     width: 100% !important;
 }
 
+/* CCS for bootstrap datatables
+
+.btn-group {
+    float: right!important;
+}
+div.dataTables_filter {
+    display: inline-block!important;
+    text-align: left!important;
+    margin-left: 15px;
+}
+#DataTables_Table_0_length {
+    display: inline-block!important;
+}
+
 textarea#notes.form-control {
     line-height: 10px;
 }
+
+table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
+    background-color: #B0BED9!important;
+}
+*/

@@ -56,6 +56,12 @@
                             <i class="fa fa-line-chart"></i>
                             <span>Time Overview</span>
                         </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.time_reports_student.index') }}">
+                            <i class="fa fa-line-chart"></i>
+                            <span>Student Report</span>
+                        </a>
                     </li>  
                 </ul>
             </li>@endcan
