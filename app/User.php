@@ -114,10 +114,10 @@ class User extends Authenticatable
     public function getAvatarAttribute()
     {
         $userEmail = $this->attributes['email'];
-        $url = "http://picasaweb.google.com/data/entry/api/user/$userEmail?alt=json";
-               
-        if (file_exists($url)) {
-            //valid
+        $url = "https://picasaweb.google.com/data/entry/api/user/$userEmail?alt=json";
+        $headers = @get_headers($url);    
+        if (strpos($headers[0],'404') === false) {
+            //valid google profile url
             $data = file_get_contents($url);
             $d = json_decode($data);
             $avatar = $d->{'entry'}->{'gphoto$thumbnail'}->{'$t'}; 
