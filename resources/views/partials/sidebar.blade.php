@@ -53,6 +53,14 @@
                   </span>
                 </a>
             </li>
+
+            @can('user_access')
+            <li>
+                <a href="{{ route('admin.users.index') }}">
+                    <i class="fa fa-users"></i>
+                    <span>Team members</span>
+                </a>
+            </li>@endcan
                  
             @can('student_access')
             <li>

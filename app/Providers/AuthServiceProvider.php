@@ -86,12 +86,12 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Time reports
         Gate::define('time_report_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1]);
         });
 
         // Auth gates for: User management
         Gate::define('user_management_access', function ($user) {
-            return in_array($user->role_id, [1, 5, 9]);
+            return in_array($user->role_id, [1]);
         });
 
         // Auth gates for: Users

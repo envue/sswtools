@@ -116,7 +116,7 @@ class User extends Authenticatable
         $userEmail = $this->attributes['email'];
         $url = "http://picasaweb.google.com/data/entry/api/user/$userEmail?alt=json";
                
-        if (!empty($url)) {
+        if (file_exists($url)) {
             //valid
             $data = file_get_contents($url);
             $d = json_decode($data);

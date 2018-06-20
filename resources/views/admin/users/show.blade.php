@@ -20,6 +20,7 @@
                             <th>@lang('quickadmin.users.fields.email')</th>
                             <td field-key='email'>{{ $user->email }}</td>
                         </tr>
+                        @can('user_delete')
                         <tr>
                             <th>@lang('quickadmin.users.fields.role')</th>
                             <td field-key='role'>{{ $user->role->title or '' }}</td>
@@ -36,20 +37,23 @@
                             <th>@lang('quickadmin.users.fields.role-until')</th>
                             <td field-key='role_until'>{{ $user->role_until }}</td>
                         </tr>
+                        @endcan
                     </table>
                 </div>
             </div><!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-    
-<li role="presentation" class="active"><a href="#payments" aria-controls="payments" role="tab" data-toggle="tab">Payments</a></li>
+
+<li role="presentation" class="active"><a href="#time_entries" aria-controls="time_entries" role="tab" data-toggle="tab">Time entries list</a></li>
 <li role="presentation" class=""><a href="#students" aria-controls="students" role="tab" data-toggle="tab">Students</a></li>
-<li role="presentation" class=""><a href="#time_entries" aria-controls="time_entries" role="tab" data-toggle="tab">Time entries list</a></li>
+@can('payments_access')    
+<li role="presentation" class=""><a href="#payments" aria-controls="payments" role="tab" data-toggle="tab">Payments</a></li>
+@endcan
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-    
-<div role="tabpanel" class="tab-pane active" id="payments">
+@can('payments_access')    
+<div role="tabpanel" class="tab-pane" id="payments">
 <table class="table table-bordered table-striped {{ count($payments) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
@@ -78,6 +82,7 @@
     </tbody>
 </table>
 </div>
+@endcan
 <div role="tabpanel" class="tab-pane " id="students">
 <table class="table table-bordered table-striped {{ count($students) > 0 ? 'datatable' : '' }}">
     <thead>
@@ -150,7 +155,7 @@
     </tbody>
 </table>
 </div>
-<div role="tabpanel" class="tab-pane " id="time_entries">
+<div role="tabpanel" class="tab-pane active" id="time_entries">
 <table class="table table-bordered table-striped {{ count($time_entries) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>

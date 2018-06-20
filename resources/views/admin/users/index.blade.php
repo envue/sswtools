@@ -29,11 +29,13 @@
 
                         <th>@lang('quickadmin.users.fields.name')</th>
                         <th>@lang('quickadmin.users.fields.email')</th>
+                        @can('user_delete')
                         <th>@lang('quickadmin.users.fields.role')</th>
                         <th>@lang('quickadmin.users.fields.team')</th>
                         <th>@lang('quickadmin.users.fields.stripe-customer-id')</th>
                         <th>@lang('quickadmin.users.fields.role-until')</th>
-                                                <th>&nbsp;</th>
+                        @endcan
+                        <th>&nbsp;</th>
 
                     </tr>
                 </thead>
@@ -53,11 +55,12 @@
                     {data: 'massDelete', name: 'id', searchable: false, sortable: false},
                 @endcan{data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
+                @can('user_delete')
                 {data: 'role.title', name: 'role.title'},
                 {data: 'team.name', name: 'team.name'},
                 {data: 'stripe_customer_id', name: 'stripe_customer_id'},
                 {data: 'role_until', name: 'role_until'},
-                
+                @endcan
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
             processAjaxTables();
