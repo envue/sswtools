@@ -57,12 +57,13 @@
                             <span>Time Overview</span>
                         </a>
                     </li>
+                    @can('student_access')
                     <li>
                         <a href="{{ route('admin.time_reports_student.index') }}">
                             <i class="fa fa-line-chart"></i>
                             <span>Student Report</span>
                         </a>
-                    </li>  
+                    </li>@endcan 
                 </ul>
             </li>@endcan
             

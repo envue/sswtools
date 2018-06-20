@@ -14,32 +14,66 @@
     <h3> Dashboard <small>Control panel</small> </h3>
     <div class="row">
         <div class = "col-sm-12 col-md-8">
-
-            <!-- Announcement Box -->
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <i class="fa fa-bullhorn"></i>
-                    <h3 class="box-title">Welcome to SSW Tools</h3>
-                    <div class="box-tools pull-right">
-                    <!-- Buttons, labels, and many other things can be placed here! -->
-                    <!-- Here is a label for example -->
-                    <!--span class="label label-primary">Last 30 Days</span>-->
+            <div class="row">
+                <div class = "col-sm-12 col-md-6">
+                    <!-- Small Box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h4><strong>Welcome to SSW Tools!</strong></h4>
+                            <p>Please note that this is a beta version of the app which is still undergoing development and final testing before its official release.</p>
+                            <p>Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your help in this regard is greatly appreciated.</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-info"></i>
+                        </div>
+                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
+                        Send Feedback <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                     </div>
-                    <!-- /.box-tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <p>Some welcome text or announcement.</p>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                </div>
-                <!-- box-footer -->
-            </div>
-            <!-- /.box -->
+                    <!-- Callout Box>
+                    <div class="callout callout-info">
+                        <h4>Welcomt to SSW Tools</h4>
 
+                        <p>Please note that this is a beta version of the app which is still undergoing development and final testing before its official release.</p>
+                        <p>Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your help in this regard is greatly appreciated.</p>
+                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
+                        Send Feedback <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                    <!-->
+                </div>
+            
+                <div class = "col-sm-12 col-md-6">
+                    <!-- Small Box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h4><strong>Tools for Teams</strong></h4>
+                            <p>We have recently added features for teams wanting to use SSW Tools. With Teams a user is assigned as a Team Administrator and is given rights to view all team data and pull reports for each of their team members.</p>
+                            <p>Currently, teams and team administrators need to be assigned manually. Please get in touch if you'd like to use the team features.</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
+                        Request Tools for Teams <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                    <!-- Callout Box>
+                    <div class="callout callout-success">
+                        <h4>Tools for Teams</h4>
+
+                        <p>We have recently added features for teams wanting to use SSW Tools. With Teams a user is assigned as a Team Administrator and is given rights to view all team data and pull reports for each of their team members.</p>
+                        <p>Currently, teams and team administrators need to be assigned manually. Please get in touch if you'd like to use the team features.</p>
+                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
+                        Request Tools for Teams <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                    <!-->
+                </div>
+            </div>
+        
             <!-- Worktype Chart -->
-            <div class="box box-default">
+            <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="fa fa-bar-chart"></i>
                     <h3 class="box-title">Time By Work Type <small> Last 30 days</small></h3>
@@ -62,7 +96,7 @@
             <!-- /.box -->
 
             <!-- Recent Time Entries Table -->
-            <div class="box box-default">
+            <div class="box box-primary">
                 <div class="box-header with-border">
                 <i class="fa fa-table"></i>
                     <h3 class="box-title">Recent Time Entries</h3>
@@ -122,7 +156,7 @@
 
         <div class = "col-sm-12 col-md-4">
             <!-- Quick Add Calendar -->                            
-            <div class="box box-default">
+            <div class="box box-danger">
                 <div class="box-header with-border">
                     <i class="fa fa-calendar"></i>
                     <h3 class="box-title">Quick Add Entry</h3>
@@ -140,10 +174,11 @@
             </div>
             <!-- /.box -->
             
-            <!-- Misc Box -->
-            <div class="box box-default">
+            <!-- Recent Time Entries Table -->
+            <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Misc Box</h3>
+                <i class="fa fa-table"></i>
+                    <h3 class="box-title">My Students</h3>
                     <div class="box-tools pull-right">
                     <!-- Buttons, labels, and many other things can be placed here! -->
                     <!-- Here is a label for example -->
@@ -152,21 +187,82 @@
                     <!-- /.box-tools -->
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body">
-                    <p>Misc Content</p>
+                <div class="box-body table-responsive">
+                    <table id="students_table" class="table table-bordered table-striped {{ count($students) > 0 ? 'datatable' : '' }}">
+                        <thead>
+                            <tr>
+                                <th>@lang('quickadmin.students.fields.identifier')</th>
+                                            
+                                @if( request('show_deleted') == 1 )
+                                <th>&nbsp;</th>
+                                @else
+                                <th>&nbsp;</th>
+                                @endif
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (count($students_list) > 0)
+                                @foreach ($students_list as $student)
+                                    <tr data-entry-id="{{ $student->id }}">
+                                        <td field-key='identifier'>{{ $student->identifier }}</td>
+                                        @if( request('show_deleted') == 1 )
+                                        <td>
+                                            @can('student_delete')
+                                                                                {!! Form::open(array(
+                                                'style' => 'display: inline-block;',
+                                                'method' => 'POST',
+                                                'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                                'route' => ['admin.students.restore', $student->id])) !!}
+                                            {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                                            {!! Form::close() !!}
+                                        @endcan
+                                            @can('student_delete')
+                                                                                {!! Form::open(array(
+                                                'style' => 'display: inline-block;',
+                                                'method' => 'DELETE',
+                                                'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                                'route' => ['admin.students.perma_del', $student->id])) !!}
+                                            {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                            {!! Form::close() !!}
+                                        @endcan
+                                        </td>
+                                        @else
+                                        <td>
+                                            @can('student_view')
+                                            <a href="{{ route('admin.students.show',[$student->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                            @endcan
+                                            @can('student_edit')
+                                            <a href="{{ route('admin.students.edit',[$student->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                            @endcan
+                                            @can('student_delete')
+                                                        {!! Form::open(array(
+                                                            'style' => 'display: inline-block;',
+                                                            'method' => 'DELETE',
+                                                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                                            'route' => ['admin.students.destroy', $student->id])) !!}
+                                                        {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                                        {!! Form::close() !!}
+                                                        @endcan
+                                                    </td>
+                                                    @endif
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                </div>
-                <!-- box-footer -->
-            </div>
-            <!-- /.box -->    
+            </div>   
         </div>
         <!-- /.column -->
     </div>
     <!-- /.row -->
-
-<!-- Add/Update Event Modals -->
+<!--------------------------------------------------------------------------------------------------------------------------------->
+<!-- /.Add/Update Event Modals -->
     <!--create new entry modal-->
     <div class="modal fade" id="createEvent" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -491,6 +587,13 @@ window.addEventListener("load", function(){
         team: "{!! $userTeam !!}"
     });
 });    
+</script>
+
+<!--Datatables options -->
+<script>
+        $('#students_table').DataTable( {
+            'buttons': [  ],
+        } );
 </script>
 
 <!-- tooltip script -->

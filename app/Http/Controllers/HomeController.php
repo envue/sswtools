@@ -26,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         
-        $timeentries = \App\TimeEntry::with('work_type')->latest()->limit(5)->get(); 
+        $timeentries = \App\TimeEntry::with('work_type')->latest()->limit(5)->get();
+        $students_list = \App\Student::all(); 
 
         //variables for Convertfox script to identify users     
         $userID = \Auth::user()->id;
@@ -68,7 +69,8 @@ class HomeController extends Controller
 
      
         return view('home', compact(
-            'timeentries', 
+            'timeentries',
+            'students_list', 
             'userID', 
             'userEmail', 
             'userName', 
