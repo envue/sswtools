@@ -110,4 +110,22 @@ class User extends Authenticatable
     {
        $this->notify(new ResetPassword($token));
     }
+
+    public function getAvatarAttribute()
+    {
+        $userEmail = $this->attributes['email'];
+        $url = "http://picasaweb.google.com/data/entry/api/user/$userEmail?alt=json";
+               
+        if (!empty($url)) {
+            //valid
+            $data = file_get_contents($url);
+            $d = json_decode($data);
+            $avatar = $d->{'entry'}->{'gphoto$thumbnail'}->{'$t'}; 
+            }
+            else {
+                $avatar = "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y";
+            };
+    
+    return $avatar;
+    }
 }
