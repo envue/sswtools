@@ -16,14 +16,18 @@
                             <th>@lang('quickadmin.students.fields.identifier')</th>
                             <td field-key='identifier'>{{ $student->identifier }}</td>
                         </tr>
+                        @can('user_view')
                         <tr>
                             <th>@lang('quickadmin.students.fields.created-by')</th>
                             <td field-key='created_by'>{{ $student->created_by->name or '' }}</td>
                         </tr>
+                        @endcan
+                        @can('user_delete')
                         <tr>
                             <th>@lang('quickadmin.students.fields.created-by-team')</th>
                             <td field-key='created_by_team'>{{ $student->created_by_team->name or '' }}</td>
                         </tr>
+                        @endcan
                     </table>
                 </div>
             </div><!-- Nav tabs -->
@@ -47,8 +51,12 @@
                         <th>@lang('quickadmin.time-entries.fields.student')</th>
                         <th>@lang('quickadmin.time-entries.fields.description')</th>
                         <th>@lang('quickadmin.time-entries.fields.notes')</th>
+                        @can('user_view')
                         <th>@lang('quickadmin.time-entries.fields.created-by')</th>
+                        @endcan
+                        @can('user_delete')
                         <th>@lang('quickadmin.time-entries.fields.created-by-team')</th>
+                        @endcan
                                                 <th>&nbsp;</th>
 
         </tr>
@@ -70,9 +78,13 @@
                                 </td>
                                 <td field-key='description'>{{ $time_entry->description }}</td>
                                 <td field-key='notes'>{!! $time_entry->notes !!}</td>
+                                @can('user_view')
                                 <td field-key='created_by'>{{ $time_entry->created_by->name or '' }}</td>
+                                @endcan
+                                @can('user_delete')
                                 <td field-key='created_by_team'>{{ $time_entry->created_by_team->name or '' }}</td>
-                                                                <td>
+                                @can('user_delete')
+                                <td>
                                     @can('time_entry_view')
                                     <a href="{{ route('admin.time_entries.show',[$time_entry->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan

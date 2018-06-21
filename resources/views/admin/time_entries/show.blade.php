@@ -48,14 +48,18 @@
                             <th>@lang('quickadmin.time-entries.fields.notes')</th>
                             <td field-key='notes'>{!! $time_entry->notes !!}</td>
                         </tr>
+                        @can('user_view')
                         <tr>
                             <th>@lang('quickadmin.time-entries.fields.created-by')</th>
                             <td field-key='created_by'>{{ $time_entry->created_by->name or '' }}</td>
                         </tr>
+                        @endcan
+                        @can('user_delete')
                         <tr>
                             <th>@lang('quickadmin.time-entries.fields.created-by-team')</th>
                             <td field-key='created_by_team'>{{ $time_entry->created_by_team->name or '' }}</td>
                         </tr>
+                        @endcan
                     </table>
                 </div>
             </div>

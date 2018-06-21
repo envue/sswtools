@@ -16,7 +16,7 @@
     <p>
         <ul class="list-inline">
             <li><a href="{{ route('admin.students.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
-            <li><a href="{{ route('admin.students.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
+            <li><a href="{{ route('admin.students.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">Inactive</a></li>
         </ul>
     </p>
     @endcan
@@ -36,8 +36,12 @@
                         @endcan
 
                         <th>@lang('quickadmin.students.fields.identifier')</th>
+                        @can('user_view')
                         <th>@lang('quickadmin.students.fields.created-by')</th>
+                        @endcan
+                        @can('user_delete')
                         <th>@lang('quickadmin.students.fields.created-by-team')</th>
+                        @endcan
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -67,9 +71,12 @@
                     {data: 'massDelete', name: 'id', searchable: false, sortable: false},
                 @endif
                 @endcan{data: 'identifier', name: 'identifier'},
+                @can('user_view')
                 {data: 'created_by.name', name: 'created_by.name'},
+                @endcan
+                @can('user_delete')
                 {data: 'created_by_team.name', name: 'created_by_team.name'},
-                
+                @endcan
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
             processAjaxTables();

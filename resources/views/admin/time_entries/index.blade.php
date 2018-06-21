@@ -38,8 +38,12 @@
                         <th>@lang('quickadmin.time-entries.fields.student')</th>
                         <th>@lang('quickadmin.time-entries.fields.description')</th>
                         <th>@lang('quickadmin.time-entries.fields.notes')</th>
+                        @can('user_view')
                         <th>@lang('quickadmin.time-entries.fields.created-by')</th>
+                        @endcan
+                        @can('user_delete')
                         <th>@lang('quickadmin.time-entries.fields.created-by-team')</th>
+                        @endcan
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -72,9 +76,12 @@
                 {data: 'student.identifier', name: 'student.identifier'},
                 {data: 'description', name: 'description'},
                 {data: 'notes', name: 'notes'},
+                @can('user_view')
                 {data: 'created_by.name', name: 'created_by.name'},
+                @endcan
+                @can('user_delete')
                 {data: 'created_by_team.name', name: 'created_by_team.name'},
-                
+                @endcan
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
             processAjaxTables();
