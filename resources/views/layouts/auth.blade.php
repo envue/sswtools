@@ -13,7 +13,7 @@
         </div>
         <!-- /.login-logo -->
             @yield ('content')
-    </div>        
+    </div> 
     
     @include('partials.javascripts')
 </body>

@@ -72,9 +72,9 @@
 		//alert : true, /*Optional : false if you don't want to initialize the selector*/
 		//callback : your_callback_function, /*Optional : Beamer will call this function, with the number of new features as a parameter, after the initialization*/
 		//---------------Visitor Information---------------
-		//user_firstname : "firstname", /*Optional : input your user firstname for better statistics*/
-		//user_lastname : "lastname", /*Optional : input your user lastname for better statistics*/
-		//user_email : "email", /*Optional : input your user email for better statistics*/
+		user_firstname : "{{ Auth::user()->name ?? "unknown" }}", /*Optional : input your user firstname for better statistics*/
+		user_lastname : " ", /*Optional : input your user lastname for better statistics*/
+		user_email : "{{ Auth::user()->email ?? ""  }}", /*Optional : input your user email for better statistics*/
 	};
 </script>
 <script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>
