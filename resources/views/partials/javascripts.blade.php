@@ -75,6 +75,7 @@
 		user_firstname : "{{ Auth::user()->name ?? "unknown" }}", /*Optional : input your user firstname for better statistics*/
 		user_lastname : " ", /*Optional : input your user lastname for better statistics*/
 		user_email : "{{ Auth::user()->email ?? ""  }}", /*Optional : input your user email for better statistics*/
+        user_id : "{{ Auth::user()->id ?? ""  }}",
 	};
 </script>
 <script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>
