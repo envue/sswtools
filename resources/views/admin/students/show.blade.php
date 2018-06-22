@@ -83,7 +83,7 @@
                                 @endcan
                                 @can('user_delete')
                                 <td field-key='created_by_team'>{{ $time_entry->created_by_team->name or '' }}</td>
-                                @can('user_delete')
+                                @endcan
                                 <td>
                                     @can('time_entry_view')
                                     <a href="{{ route('admin.time_entries.show',[$time_entry->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
@@ -92,7 +92,7 @@
                                     <a href="{{ route('admin.time_entries.edit',[$time_entry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
                                     @endcan
                                     @can('time_entry_delete')
-{!! Form::open(array(
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
