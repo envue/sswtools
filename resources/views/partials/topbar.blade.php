@@ -34,7 +34,7 @@
                 </li>
          
                 <li class="pull-right">
-                    <a href="#" onclick="convertfox.chat('openNewConversation')"><strong><i class="fa fa-question-circle be"></i></strong></a>
+                    <a href="#" onclick="convertfox.chat('openNewConversation')"><strong><i class="fa fa-comments"></i></strong></a>
                 </li>
 
             </ul>
