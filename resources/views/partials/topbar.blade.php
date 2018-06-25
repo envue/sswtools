@@ -30,11 +30,15 @@
                 </li>
                 
                 <li class="beamerTrigger pull-right" style="position: relative">
-                    <a href="#"><i class="fa fa-bell-o"></i></a>
+                    <a href="#" title="Notifications"><i class="fa fa-bell-o"></i></a>
                 </li>
          
                 <li class="pull-right">
-                    <a href="#" onclick="convertfox.chat('openNewConversation')"><strong><i class="fa fa-comments"></i></strong></a>
+                    <a href="#" onclick="convertfox.chat('openNewConversation')" title="Message Us"><strong><i class="fa fa-comments-o"></i></strong></a>
+                </li>
+
+                <li class="pull-right">
+                    <a href="https://projects.envuestudios.com/p/t6afzvnqqsxhticjc" target="_blank" title="Public Roadmap" ><strong><i class="fa fa-map-o"></i></strong></a>
                 </li>
 
             </ul>
