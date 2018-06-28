@@ -235,7 +235,7 @@
             },
             options: {                
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero:true
                         }
@@ -283,7 +283,7 @@
         var caseloadChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Caseload', 'Non-Caseload'],
+                labels: caseloadTypeLabels,
                 datasets: [{
                     label: '# of Minutes',
                     data: caseloadTypeData,
