@@ -110,6 +110,12 @@
                         No
                     </label>
                 </div>
+                <div class= "radio-inline">
+                    <label>
+                        {!! Form::radio('caseload', 'Mixed', false, ['required' => 'required']) !!}
+                        Mixed
+                    </label>
+                </div>
                 <div class= "hidden">
                     <label>
                         {!! Form::radio('caseload', 'null', false, ['required' => 'required']) !!}
@@ -261,6 +267,12 @@
                     <label>
                         {!! Form::radio('caseload', 'No', false, ['required' => 'required']) !!}
                         No
+                    </label>
+                </div>
+                <div class= "radio-inline">
+                    <label>
+                        {!! Form::radio('caseload', 'Mixed', false, ['required' => 'required']) !!}
+                        Mixed
                     </label>
                 </div>
                 <div class= "hidden">

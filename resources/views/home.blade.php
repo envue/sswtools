@@ -358,6 +358,12 @@
                             No
                         </label>
                     </div>
+                    <div class= "radio-inline">
+                        <label>
+                            {!! Form::radio('caseload', 'Mixed', false, ['required' => 'required']) !!}
+                            Mixed
+                        </label>
+                    </div>
                     <div class= "hidden">
                         <label>
                             {!! Form::radio('caseload', 'null', false, ['required' => 'required']) !!}
@@ -511,6 +517,12 @@
                             No
                         </label>
                     </div>
+                    <div class= "radio-inline">
+                        <label>
+                            {!! Form::radio('caseload', 'Mixed', false, ['required' => 'required']) !!}
+                            Mixed
+                        </label>
+                    </div>
                     <div class= "hidden">
                         <label>
                             {!! Form::radio('caseload', 0, false, ['required' => 'required']) !!}
@@ -579,7 +591,7 @@
 
 <!-- Send user data to Convertfox -->
 <script>
-window.addEventListener("load", function(){
+$(document).ready(function(){
     convertfox.identify("{!! $userID !!}", {
         email: "{!! $userEmail !!}",
         name: "{!! $userName !!}",
