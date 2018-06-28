@@ -38,7 +38,7 @@ class SubscriptionsController extends Controller
         if ($payment) {
             Auth::user()->update([
                 'role_id' => $id,
-                'role_until' => Carbon::now()->addMonth()
+                'role_until' => Carbon::now()->addYear()
             ]);
 
         }
