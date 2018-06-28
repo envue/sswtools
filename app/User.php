@@ -70,7 +70,7 @@ class User extends Authenticatable
     public function setRoleUntilAttribute($input)
     {
         if ($input != null && $input != '') {
-            $this->attributes['role_until'] = Carbon::createFromFormat(config('app.date_format') . ' H:i:s', $input)->format('Y-m-d H:i:s');
+            $this->attributes['role_until'] = Carbon::createFromFormat(config('app.date_format') . ' h:i A', $input)->format('Y-m-d H:i:s');
         } else {
             $this->attributes['role_until'] = null;
         }
@@ -84,10 +84,10 @@ class User extends Authenticatable
      */
     public function getRoleUntilAttribute($input)
     {
-        $zeroDate = str_replace(['Y', 'm', 'd'], ['0000', '00', '00'], config('app.date_format') . ' H:i:s');
+        $zeroDate = str_replace(['Y', 'm', 'd'], ['0000', '00', '00'], config('app.date_format') . ' h:i A');
 
         if ($input != $zeroDate && $input != null) {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $input)->format(config('app.date_format') . ' H:i:s');
+            return Carbon::createFromFormat('Y-m-d H:i:s', $input)->format(config('app.date_format') . ' h:i A');
         } else {
             return '';
         }
