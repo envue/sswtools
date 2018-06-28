@@ -6,6 +6,16 @@
     width: 100% !important;
 }
 
+@media (min-width: 768px) {
+    .control-sidebar-open .content-wrapper, .control-sidebar-open .right-side, .control-sidebar-open .main-footer {
+        margin-right: 250px;
+    }}
+
+.control-sidebar-bg, .control-sidebar {
+    right: -250px;
+    width: 250px;
+    }
+
 /* CCS for bootstrap datatables
 
 .btn-group {
