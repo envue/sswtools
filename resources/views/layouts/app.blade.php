@@ -47,6 +47,7 @@
             </div>
         </section>
     </div>
+    @include('partials.controlbar')
 </div>
 
 {!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}

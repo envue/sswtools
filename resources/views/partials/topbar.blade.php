@@ -21,6 +21,9 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" data-toggle="control-sidebar" title="Terms Reference"><i class="fa fa-book"></i></a>
+                </li>
                 
                 <li class="pull-right">
                     <a href="#logout" onclick="$('#logout').submit();">

@@ -73,7 +73,7 @@ $.AdminLTE.options = {
     //The sidebar selector
     selector: ".control-sidebar",
     //Enable slide over content
-    slide: true
+    slide: false
   },
   //Box Widget Plugin. Enable this plugin
   //to allow boxes to be collapsed and/or removed
