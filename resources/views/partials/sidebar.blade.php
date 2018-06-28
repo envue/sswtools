@@ -86,87 +86,7 @@
                 </ul>
             </li>@endcan
             
-            @can('user_management_access')
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>@lang('quickadmin.user-management.title')</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    @can('user_access')
-                    <li>
-                        <a href="{{ route('admin.users.index') }}">
-                            <i class="fa fa-user"></i>
-                            <span>@lang('quickadmin.users.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('team_access')
-                    <li>
-                        <a href="{{ route('admin.teams.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span>@lang('quickadmin.teams.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('role_access')
-                    <li>
-                        <a href="{{ route('admin.roles.index') }}">
-                            <i class="fa fa-briefcase"></i>
-                            <span>@lang('quickadmin.roles.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('user_profile_access')
-                    <li>
-                        <a href="{{ route('admin.user_profiles.index') }}">
-                            <i class="fa fa-gears"></i>
-                            <span>@lang('quickadmin.user-profiles.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                </ul>
-            </li>@endcan
             
-            @can('content_management_access')
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-book"></i>
-                    <span>@lang('quickadmin.content-management.title')</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    @can('content_category_access')
-                    <li>
-                        <a href="{{ route('admin.content_categories.index') }}">
-                            <i class="fa fa-folder"></i>
-                            <span>@lang('quickadmin.content-categories.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('content_tag_access')
-                    <li>
-                        <a href="{{ route('admin.content_tags.index') }}">
-                            <i class="fa fa-tags"></i>
-                            <span>@lang('quickadmin.content-tags.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('content_page_access')
-                    <li>
-                        <a href="{{ route('admin.content_pages.index') }}">
-                            <i class="fa fa-file-o"></i>
-                            <span>@lang('quickadmin.content-pages.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                </ul>
-            </li>@endcan
             
             @can('system_admin_access')
             <li class="treeview">
@@ -178,6 +98,87 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                     @can('user_management_access')
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span>@lang('quickadmin.user-management.title')</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @can('user_access')
+                            <li>
+                                <a href="{{ route('admin.users.index') }}">
+                                    <i class="fa fa-user"></i>
+                                    <span>@lang('quickadmin.users.title')</span>
+                                </a>
+                            </li>@endcan
+                            
+                            @can('team_access')
+                            <li>
+                                <a href="{{ route('admin.teams.index') }}">
+                                    <i class="fa fa-users"></i>
+                                    <span>@lang('quickadmin.teams.title')</span>
+                                </a>
+                            </li>@endcan
+                            
+                            @can('role_access')
+                            <li>
+                                <a href="{{ route('admin.roles.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span>@lang('quickadmin.roles.title')</span>
+                                </a>
+                            </li>@endcan
+                            
+                            @can('user_profile_access')
+                            <li>
+                                <a href="{{ route('admin.user_profiles.index') }}">
+                                    <i class="fa fa-gears"></i>
+                                    <span>@lang('quickadmin.user-profiles.title')</span>
+                                </a>
+                            </li>@endcan
+                            
+                        </ul>
+                    </li>@endcan
+                    
+                    @can('content_management_access')
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>@lang('quickadmin.content-management.title')</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @can('content_category_access')
+                            <li>
+                                <a href="{{ route('admin.content_categories.index') }}">
+                                    <i class="fa fa-folder"></i>
+                                    <span>@lang('quickadmin.content-categories.title')</span>
+                                </a>
+                            </li>@endcan
+                            
+                            @can('content_tag_access')
+                            <li>
+                                <a href="{{ route('admin.content_tags.index') }}">
+                                    <i class="fa fa-tags"></i>
+                                    <span>@lang('quickadmin.content-tags.title')</span>
+                                </a>
+                            </li>@endcan
+                            
+                            @can('content_page_access')
+                            <li>
+                                <a href="{{ route('admin.content_pages.index') }}">
+                                    <i class="fa fa-file-o"></i>
+                                    <span>@lang('quickadmin.content-pages.title')</span>
+                                </a>
+                            </li>@endcan
+                            
+                        </ul>
+                    </li>@endcan
                     @can('time_work_type_access')
                     <li>
                         <a href="{{ route('admin.time_work_types.index') }}">
@@ -190,45 +191,45 @@
                     <li>
                         <a href="{{ route('admin.time_projects.index') }}">
                             <i class="fa fa-users"></i>
-                            <span>@lang('quickadmin.time-projects.title')</span>
+                            <span>@lang('quickadmin.time-projects.title')-Empty</span>
                         </a>
                     </li>@endcan
-                    
+
+                                @can('system_admin_access')
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-line-chart"></i>
+                            <span class="title">Generated Reports</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                        <li class="{{ $request->is('/reports/user-signups') }}">
+                                <a href="{{ url('/admin/reports/user-signups') }}">
+                                    <i class="fa fa-line-chart"></i>
+                                    <span class="title">User signups</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>@endcan
+
+                    @can('payment_access')
+                    <li>
+                        <a href="{{ route('admin.payments.index') }}">
+                            <i class="fa fa-credit-card"></i>
+                            <span>@lang('quickadmin.payments.title')</span>
+                        </a>
+                    </li>@endcan
+  
                 </ul>
             </li>@endcan
             
-            @can('system_admin_access')
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-line-chart"></i>
-                    <span class="title">Generated Reports</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                   <li class="{{ $request->is('/reports/user-signups') }}">
-                        <a href="{{ url('/admin/reports/user-signups') }}">
-                            <i class="fa fa-line-chart"></i>
-                            <span class="title">User signups</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>@endcan
-
             @can('subscription_access')
             <li>
                 <a href="{{ route('admin.subscriptions.index') }}">
                     <i class="fa fa-credit-card"></i>
                     <span>@lang('quickadmin.subscriptions.title')</span>
-                </a>
-            </li>@endcan
-
-            @can('payment_access')
-            <li>
-                <a href="{{ route('admin.payments.index') }}">
-                    <i class="fa fa-credit-card"></i>
-                    <span>@lang('quickadmin.payments.title')</span>
                 </a>
             </li>@endcan
             

@@ -56,7 +56,7 @@ class SubscriptionsController extends Controller
 
         if ($subscription) {
             Auth::user()->update([
-                'role_id' => 2,
+                'role_id' => 6,
                 'role_until' => null
             ]);
 

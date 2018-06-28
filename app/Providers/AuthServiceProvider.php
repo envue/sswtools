@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
         
         // Auth gates for: Subscriptions
         Gate::define('subscription_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 5, 6, 8, 9]);
         });
 
         // Auth gates for: Students
