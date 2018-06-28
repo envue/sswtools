@@ -28,7 +28,7 @@
     <div class="tab-content">
       <!-- Home tab content -->
       <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Time Entry Terms</h3>
+        <h4 class="control-sidebar-heading">Time Entry Terms</h4>
         <div class="bs-example">
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
