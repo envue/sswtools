@@ -8,6 +8,10 @@
     .panel-heading {
         padding: 7px 10px;
     }
+    .control-sidebar-light, .control-sidebar-light+.control-sidebar-bg {
+    background: #ffff;
+    border-left: 1px solid #d2d6de;
+    }
 </style>
 
 <!--control sidebar -->
