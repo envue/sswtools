@@ -18,7 +18,7 @@
 <aside class="control-sidebar control-sidebar-light">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-book"></i></a></li>
+      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-book"></i><span> Terms Reference</span></a></li>
         <!--unused tabs at the moment
       <li><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
       <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
@@ -28,7 +28,7 @@
     <div class="tab-content">
       <!-- Home tab content -->
       <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Terms Reference</h3>
+        <h3 class="control-sidebar-heading">Time Entry Terms</h3>
         <div class="bs-example">
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
