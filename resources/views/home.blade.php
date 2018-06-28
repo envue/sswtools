@@ -652,7 +652,7 @@ $(document).ready(function(){
         },
         options: {                
             scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
                             beginAtZero:true
                         }
