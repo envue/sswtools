@@ -35,7 +35,9 @@
                         <th>@lang('quickadmin.time-entries.fields.work-type')</th>
                         <th>@lang('quickadmin.time-entries.fields.population-type')</th>
                         <th>@lang('quickadmin.time-entries.fields.caseload')</th>
+                        @can('studen_access')
                         <th>@lang('quickadmin.time-entries.fields.student')</th>
+                        @endcan
                         <th>@lang('quickadmin.time-entries.fields.description')</th>
                         <th>@lang('quickadmin.time-entries.fields.notes')</th>
                         @can('user_view')
@@ -73,7 +75,9 @@
                 {data: 'work_type.name', name: 'work_type.name'},
                 {data: 'population_type', name: 'population_type'},
                 {data: 'caseload', name: 'caseload'},
+                @can('student_access')
                 {data: 'student.identifier', name: 'student.identifier'},
+                @endcan
                 {data: 'description', name: 'description'},
                 {data: 'notes', name: 'notes'},
                 @can('user_view')

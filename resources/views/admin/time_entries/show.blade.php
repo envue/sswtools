@@ -32,6 +32,7 @@
                             <th>@lang('quickadmin.time-entries.fields.caseload')</th>
                             <td field-key='caseload'>{{ $time_entry->caseload }}</td>
                         </tr>
+                        @can('student_access')
                         <tr>
                             <th>@lang('quickadmin.time-entries.fields.student')</th>
                             <td field-key='student'>
@@ -40,6 +41,7 @@
                                 @endforeach
                             </td>
                         </tr>
+                        @endcan
                         <tr>
                             <th>@lang('quickadmin.time-entries.fields.description')</th>
                             <td field-key='description'>{{ $time_entry->description }}</td>

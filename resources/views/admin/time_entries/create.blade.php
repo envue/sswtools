@@ -41,7 +41,7 @@
                     @endif
                 </div>
             </div>
-            <div id= "population_caseload_row" class="row">
+            <div id= "population_row" class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('population_type', trans('quickadmin.time-entries.fields.population-type').': ', ['class' => 'control-label']) !!}
                     @if($errors->has('population_type'))
@@ -70,7 +70,7 @@
                     </div>
                     <div class= "hidden">
                         <label>
-                            {!! Form::radio('population_type', 'null', false, ['required' => 'required']) !!}
+                            {!! Form::radio('population_type', '0', false, ['required' => 'required']) !!}
                         </label>
                     </div>
                 </div>
@@ -96,13 +96,20 @@
                             No
                         </label>
                     </div>
+                    <div class= "radio-inline">
+                        <label>
+                            {!! Form::radio('caseload', 'Mixed', false, ['required' => 'required']) !!}
+                            Mixed
+                        </label>
+                    </div>
                     <div class= "hidden">
                         <label>
-                            {!! Form::radio('caseload', 'null', false, ['required' => 'required']) !!}
+                            {!! Form::radio('caseload', '0', false, ['required' => 'required']) !!}
                         </label>
                     </div>
                 </div>
             </div>
+            @can('student_access')
             <div id="student_row" class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('student', trans('quickadmin.time-entries.fields.student').'', ['class' => 'control-label']) !!}
@@ -119,7 +126,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
+            </div>@endcan
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('description', trans('quickadmin.time-entries.fields.description').'', ['class' => 'control-label']) !!}

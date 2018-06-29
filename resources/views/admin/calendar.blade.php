@@ -123,6 +123,7 @@
                 </div>
             </div>
         </div>
+        @can('student_access')
         <div id="student_row" class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('student', trans('quickadmin.time-entries.fields.student').'', ['class' => 'control-label']) !!}
@@ -139,7 +140,8 @@
                     </p>
                 @endif
             </div>
-        </div>
+        </div>@endcan
+       
         <div class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('description', trans('quickadmin.time-entries.fields.description').'', ['class' => 'control-label']) !!}
@@ -282,6 +284,7 @@
                 </div>
             </div>
         </div>
+        @can('student_access')
         <div id="student_row" class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('student', trans('quickadmin.time-entries.fields.student').'', ['class' => 'control-label']) !!}
@@ -298,7 +301,8 @@
                     </p>
                 @endif
             </div>
-        </div>
+        </div>@endcan
+        
         <div class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('description', trans('quickadmin.time-entries.fields.description').'', ['class' => 'control-label']) !!}
