@@ -20,13 +20,19 @@
 #reusable-button-wrapper {
     box-shadow: none!important;
 }
-.reusable-footer img, .resuable-footer p, .userguiding-branding a img, .branding a img {
+.reusable-footer img, 
+.userguiding-branding a img, 
+.branding a img,
+#__userGuiding__Root .reusable-guides-container .reusable-footer p {
     display:none!important;
 }
 .reusable-footer {
     background-color: #3c8dbc!important;
 }
-.reusable-guides-list-header i, .reusable-guide-completion i, .reusable-guides-list-header p, {
+#__userGuiding__Root .reusable-guides-container .reusable-guides-list-container .reusable-guides-list-section .reusable-guides-list-header i,
+#__userGuiding__Root .reusable-guides-container .reusable-guides-list-container .reusable-guides-list-section .reusable-guide-row .reusable-guide-completion i, 
+#__userGuiding__Root .reusable-guides-container .reusable-guides-list-container .reusable-guides-list-section .reusable-guides-list-header p,
+#__userGuiding__Root .reusable-guides-container .ug-reusable-header-container .ug-reusable-title {
     color: #3c8dbc!important;
 }
 .reusable-guide-completion i.fa-check {
