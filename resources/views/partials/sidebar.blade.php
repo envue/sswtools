@@ -43,6 +43,19 @@
                     <span>Team members</span>
                 </a>
             </li>@endcan
+
+            <!--Coming soon for student feature.-->
+            @cannot('student_access')
+            <li>
+                <a href="https://youtu.be/vAF7cM0ox5M" target="_blank">
+                    <i class="fa fa-users"></i>
+                    <span>Students</span>
+                    <span class="pull-right-container">
+                        <small class="label pull-right bg-green">Coming soon!</small>
+                    </span>
+                </a>
+            </li>@endcannot
+            <!-- ./ coming soon student feature -->
                  
             @can('student_access')
             <li>
@@ -250,4 +263,6 @@
         </ul>
     </section>
 </aside>
+
+
 
