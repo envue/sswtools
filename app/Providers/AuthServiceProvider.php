@@ -37,19 +37,19 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Students
         Gate::define('student_access', function ($user) {
-            return in_array($user->role_id, [1, 5, 6, 8, 9]);
+            return in_array($user->role_id, [1, 5, 8, 9]);
         });
         Gate::define('student_create', function ($user) {
-            return in_array($user->role_id, [1, 5, 6, 8, 9]);
+            return in_array($user->role_id, [1, 5, 8, 9]);
         });
         Gate::define('student_edit', function ($user) {
-            return in_array($user->role_id, [1, 5, 6, 8, 9]);
+            return in_array($user->role_id, [1, 5, 8, 9]);
         });
         Gate::define('student_view', function ($user) {
-            return in_array($user->role_id, [1, 5, 6, 8, 9]);
+            return in_array($user->role_id, [1, 5, 8, 9]);
         });
         Gate::define('student_delete', function ($user) {
-            return in_array($user->role_id, [1, 5, 6, 8, 9]);
+            return in_array($user->role_id, [1, 5, 8, 9]);
         });
 
         // Auth gates for: Payments
