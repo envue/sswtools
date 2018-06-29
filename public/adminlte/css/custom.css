@@ -20,7 +20,21 @@
 #reusable-button-wrapper {
     box-shadow: none!important;
 }
-
+.reusable-footer img, .resuable-footer p, .userguiding-branding a img, .branding a img {
+    display:none!important;
+}
+.reusable-footer {
+    background-color: #3c8dbc!important;
+}
+.reusable-guides-list-header i, .reusable-guide-completion i, .reusable-guides-list-header p, {
+    color: #3c8dbc!important;
+}
+.reusable-guide-completion i.fa-check {
+    color: #00a65a!important;
+}
+.reusable-guide-title {
+    color: #333!important;
+}
 /* CCS for bootstrap datatables
 
 .btn-group {
