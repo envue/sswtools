@@ -886,34 +886,34 @@ $(document).ready(function(){
     });
 </script>
 
-<!-- script to conditionally show/hide fields based on work_type_id -->
 <script>
-    $('#eventNew #work_type_id, #eventUpdate #work_type_id').change(function () {
-    var val = $(this).val();
+        //conditionally show/hide fields based on work_type_id
+        $('#eventNew #work_type_id, #eventUpdate #work_type_id').change(function () {
+        var val = $(this).val();
 
-        if (val > 12) {
-        //hide options
-        $('#eventNew #population_caseload_row, #eventUpdate #population_caseload_row').hide();
-        $('#eventNew #student_row, #eventUpdate #student_row').hide();
-        //deselect options on hide
-        $("#eventNew #selectall-student > option, #eventUpdate #selectall-student > option").prop("selected","");
-        $("#eventNew #selectall-student, #eventUpdate #selectall-student").trigger("change");
-        $('#eventNew input:radio').removeAttr('checked');
-        //unrequire hidden radio fields
-        $('input:radio').removeAttr('required');
-        //select null value on update form when non-caseload/population work_type_id is selected
-        $('#updateEvent input[name=caseload][value=' + 0 + ']').prop('checked',true);
-        $('#updateEvent input[name=population_type][value=' + 0 + ']').prop('checked',true);
+            if (val > 12) {
+            //hide options
+            $('#eventNew #population_caseload_row, #eventUpdate #population_caseload_row').hide();
+            $('#eventNew #student_row, #eventUpdate #student_row').hide();
+            //deselect options on hide
+            $("#eventNew #selectall-student > option, #eventUpdate #selectall-student > option").prop("selected","");
+            $("#eventNew #selectall-student, #eventUpdate #selectall-student").trigger("change");
+            $('#eventNew input:radio').removeAttr('checked');
+            //unrequire hidden radio fields
+            $('input:radio').removeAttr('required');
+            //select null value on update form when non-caseload/population work_type_id is selected
+            $('#updateEvent input[name=caseload][value=' + 0 + ']').prop('checked',true);
+            $('#updateEvent input[name=population_type][value=' + 0 + ']').prop('checked',true);
 
-        }
-        else {
-        $('#eventNew #population_caseload_row, #eventUpdate #population_caseload_row').show();
-        $("#eventNew #student_row, #eventUpdate #student_row").show();
-        //require visible radio fields
-        $('input:radio').attr('required', 'required');    
-        }
-    }).change(); // automatically execute the on change function on page load
-</script>
-
+            }
+            else {
+            $('#eventNew #population_caseload_row, #eventUpdate #population_caseload_row').show();
+            $("#eventNew #student_row, #eventUpdate #student_row").show();
+            //require visible radio fields
+            $('input:radio').attr('required', true);
+            $('input:radio').removeAttr('checked');    
+            }
+        }).change(); // automatically execute the on change function on page load
+    </script>
 @stop
 
