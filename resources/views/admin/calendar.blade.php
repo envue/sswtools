@@ -81,7 +81,6 @@
                     $('#updateEvent #end_time').val(endDate);
                     $('#updateEvent #notes').val(calEvent.notes);
                     $('#updateEvent #selectall-student').val(calEvent.student).change();
-                    //$("#updateEvent #selectall-student > option[value=]").prop("selected", "selected").change();
                 },
                 
                 eventDrop: function(calEvent, delta, revertFunc) {
