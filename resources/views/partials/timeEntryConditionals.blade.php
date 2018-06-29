@@ -23,7 +23,8 @@
         $('#population_caseload_row').show();
         $('#student_row').show();
         //require visible radio fields
-        $('input:radio').attr('required', 'required');    
+        $('input:radio').attr('required', true);
+        $('input:radio').removeAttr('checked');    
         }
     }).change(); // automatically execute the on change function on page load
 </script>
