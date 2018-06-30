@@ -17,6 +17,11 @@
     }
 
 /* CSS for User Guiding Button */
+@media (max-width: 767px) {
+    #__userGuiding__Root #reusable-button-wrapper {
+        display: none!important;
+    }
+}
 #reusable-button-wrapper {
     box-shadow: none!important;
 }

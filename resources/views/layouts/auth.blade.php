@@ -4,10 +4,10 @@
 <head>
     @include('partials.head')
     <!-- Hide convertfox and user guiding widgets -->
-    <style>
-        .convertfox-messanger, #__userGuiding__Root #reusable-button-wrapper {
-            display:none!important;
-        }
+    <style> 
+        .convertfox-messanger-bubble, #__userGuiding__Root #reusable-button-wrapper {
+                display:none!important;
+            }
     </style>
 </head>
 
