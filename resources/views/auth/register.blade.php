@@ -41,7 +41,7 @@
         <div class="col-xs-8">
           <div class="checkbox">
             <label>
-              <input type="checkbox" required> I agree to the <a href="#">terms</a>
+              <input type="checkbox" required> I agree to the <a data-toggle="modal" href="#termsModal">terms</a>
             </label>
           </div>
         </div>
@@ -55,4 +55,5 @@
     <a href="{{ route('auth.login') }}" class="text-center">I already have an account</a>
   </div>
   <!-- /.form-box -->
+  @include('partials.termsModal')
 @endsection
