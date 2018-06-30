@@ -35,7 +35,7 @@
                         <th>@lang('quickadmin.time-entries.fields.work-type')</th>
                         <th>@lang('quickadmin.time-entries.fields.population-type')</th>
                         <th>@lang('quickadmin.time-entries.fields.caseload')</th>
-                        @can('studen_access')
+                        @can('student_access')
                         <th>@lang('quickadmin.time-entries.fields.student')</th>
                         @endcan
                         <th>@lang('quickadmin.time-entries.fields.description')</th>
