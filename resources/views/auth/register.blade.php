@@ -41,7 +41,7 @@
         <div class="col-xs-8">
           <div class="checkbox">
             <label>
-              <input type="checkbox" required> I agree to the <a data-toggle="modal" href="#termsModal">terms</a>
+              <input type="checkbox" required> I agree to the <a data-toggle="modal" href="#termsModal">beta agreement terms</a>
             </label>
           </div>
         </div>
