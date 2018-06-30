@@ -5,7 +5,7 @@
     @include('partials.head')
     <!-- Hide convertfox and user guiding widgets -->
     <style> 
-        .convertfox-messanger-bubble, #__userGuiding__Root #reusable-button-wrapper {
+        .convertfox-chat, #__userGuiding__Root #reusable-button-wrapper {
                 display:none!important;
             }
     </style>
