@@ -145,11 +145,12 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="fa fa-bar-chart"></i>
-                    <h3 class="box-title">Time By Work Type <small> Last 30 days</small></h3>
+                    <h3 class="box-title">Time Overview <small> (Last 30 days)</small></h3>
                     <div class="box-tools pull-right">
                     <!-- Buttons, labels, and many other things can be placed here! -->
                     <!-- Here is a label for example -->
                     <!--span class="label label-primary">Last 30 Days</span>-->
+                    <a class="btn btn-box-tool" href="{{url('admin/time_reports')}}">Full Report</a>
                     </div>
                     <!-- /.box-tools -->
                 </div>
@@ -157,10 +158,6 @@
                 <div class="box-body">
                     <canvas id="worktypeChart" </canvas>
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                </div>
-                <!-- /.box-footer -->
             </div>
             <!-- /.box -->
             
@@ -173,6 +170,7 @@
                     <!-- Buttons, labels, and many other things can be placed here! -->
                     <!-- Here is a label for example -->
                     <!--span class="label label-primary">Last 30 Days</span>-->
+                    <a class="btn btn-box-tool" href="{{url('admin/time_entries')}}">View All</a>
                     </div>
                     <!-- /.box-tools -->
                 </div>
