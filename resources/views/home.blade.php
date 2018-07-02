@@ -24,9 +24,6 @@
                 Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your particpation and feedback in Beta testing is highly appreciated.
                 </p>
                 <a href="#" class="callout-footer" onclick="convertfox.chat('openNewConversation')"><i class="fa fa-bug"></i>  Report Bug/Issue</a>
-                &nbsp;&nbsp;&nbsp;
-                <a href="https://feedback.feedier.com/hrR2TA?email={{ Auth::user()->email }}" class="callout-footer" target="_blank">
-                <i class="fa fa-arrow-circle-right"></i>  Feedback Survey</a>
             </div>
         </div>
     </div>    
