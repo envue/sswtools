@@ -61,7 +61,14 @@ class HomeController extends Controller
             $workTypeData = array_column($work_type_time, 'time');
 
         //Calendar and modal form variables
-        $work_types = \App\TimeWorkType::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $work_types = \App\TimeWorkType::get()->pluck('name', 'id', 'description')->prepend(trans('quickadmin.qa_please_select'), '');
+        
+        //Create an array of option attribute
+        $work_types_descriptions = \App\TimeWorkType::get()
+        ->mapWithKeys(function ($item) {
+                        return [$item->id => ['title' => $item->description]];
+                    })->all();
+
         $students = \App\Student::get()->pluck('identifier', 'id');
 
         $created_bies = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
@@ -81,7 +88,8 @@ class HomeController extends Controller
             'work_types', 
             'students', 
             'created_bies', 
-            'created_by_teams' 
+            'created_by_teams',
+            'work_types_descriptions' 
         ));
     }
 }

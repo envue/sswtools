@@ -32,6 +32,7 @@ class TimeWorkTypesController extends Controller
             $query->select([
                 'time_work_types.id',
                 'time_work_types.name',
+                'time_work_types.description'
             ]);
             $table = Datatables::of($query);
 
@@ -48,6 +49,9 @@ class TimeWorkTypesController extends Controller
             });
             $table->editColumn('name', function ($row) {
                 return $row->name ? $row->name : '';
+            });
+            $table->editColumn('description', function ($row) {
+                return $row->description ? $row->description : '';
             });
 
             $table->rawColumns(['actions','massDelete']);

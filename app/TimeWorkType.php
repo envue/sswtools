@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 */
 class TimeWorkType extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name','description'];
     protected $hidden = [];
     public static $searchable = [
     ];

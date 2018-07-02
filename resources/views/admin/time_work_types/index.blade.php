@@ -28,6 +28,7 @@
                         @endcan
 
                         <th>@lang('quickadmin.time-work-types.fields.name')</th>
+                        <th>Description</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -46,8 +47,9 @@
             window.dtDefaultOptions.ajax = '{!! route('admin.time_work_types.index') !!}';
             window.dtDefaultOptions.columns = [@can('time_work_type_delete')
                     {data: 'massDelete', name: 'id', searchable: false, sortable: false},
-                @endcan{data: 'name', name: 'name'},
-                
+                @endcan
+                {data: 'name', name: 'name'},
+                {data: 'description', name: 'description'},
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
             processAjaxTables();

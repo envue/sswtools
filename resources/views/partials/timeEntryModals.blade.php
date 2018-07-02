@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-xs-12 form-group">
                 {!! Form::label('work_type_id', trans('quickadmin.time-entries.fields.work-type').'*', ['class' => 'control-label']) !!}
-                {!! Form::select('work_type_id', $work_types, old('work_type_id'), ['class' => 'form-control select2', 'required' => '']) !!}
+                {!! Form::select('work_type_id', $work_types, old('work_type_id'), ['class' => 'form-control select2', 'required' => ''], $work_types_descriptions) !!}
                 @if($errors->has('work_type_id'))
                     <p class="help-block">
                         {{ $errors->first('work_type_id') }}
