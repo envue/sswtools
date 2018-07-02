@@ -13,7 +13,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"> 
     <h3> Dashboard <small>Control panel</small> </h3>
 
-    <div class="row-eq-height">
+    <div class="row">
         <div class = "col-sm-12 col-md-12">        
             <div class="callout callout-info">
                 <h4>Welcome to SSW Tools Beta</h4>
