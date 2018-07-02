@@ -12,148 +12,26 @@
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}"> 
     <h3> Dashboard <small>Control panel</small> </h3>
-    <div class="row">
-        <div class = "col-sm-12 col-md-8">
-            <div class="row">
-                <div class = "col-sm-12 col-md-6">
-                    <!-- Small Box -->
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h4><strong>Welcome to SSW Tools!</strong></h4>
-                            <p>Please note that this is a beta version of the app which is still undergoing development and final testing before its official release.</p>
-                            <p>Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your help in this regard is greatly appreciated.</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-info"></i>
-                        </div>
-                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
-                        Send Feedback <i class="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                    <!-- Callout Box>
-                    <div class="callout callout-info">
-                        <h4>Welcomt to SSW Tools</h4>
 
-                        <p>Please note that this is a beta version of the app which is still undergoing development and final testing before its official release.</p>
-                        <p>Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your help in this regard is greatly appreciated.</p>
-                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
-                        Send Feedback <i class="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                    <!-->
-                </div>
-            
-                <div class = "col-sm-12 col-md-6">
-                    <!-- Small Box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h4><strong>Tools for Teams</strong></h4>
-                            <p>We have recently added features for teams wanting to use SSW Tools. With Teams a user is assigned as a Team Administrator and is given rights to view all team data and pull reports for each of their team members.</p>
-                            <p>Currently, teams and team administrators need to be assigned manually. Please get in touch if you'd like to use the team features.</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-users"></i>
-                        </div>
-                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
-                        Request Tools for Teams <i class="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                    <!-- Callout Box>
-                    <div class="callout callout-success">
-                        <h4>Tools for Teams</h4>
-
-                        <p>We have recently added features for teams wanting to use SSW Tools. With Teams a user is assigned as a Team Administrator and is given rights to view all team data and pull reports for each of their team members.</p>
-                        <p>Currently, teams and team administrators need to be assigned manually. Please get in touch if you'd like to use the team features.</p>
-                        <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')">
-                        Request Tools for Teams <i class="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                    <!-->
-                </div>
-            </div>
-        
-            <!-- Worktype Chart -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <i class="fa fa-bar-chart"></i>
-                    <h3 class="box-title">Time By Work Type <small> Last 30 days</small></h3>
-                    <div class="box-tools pull-right">
-                    <!-- Buttons, labels, and many other things can be placed here! -->
-                    <!-- Here is a label for example -->
-                    <!--span class="label label-primary">Last 30 Days</span>-->
-                    </div>
-                    <!-- /.box-tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <canvas id="worktypeChart" </canvas>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                </div>
-                <!-- /.box-footer -->
-            </div>
-            <!-- /.box -->
-
-            <!-- Recent Time Entries Table -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                <i class="fa fa-table"></i>
-                    <h3 class="box-title">Recent Time Entries</h3>
-                    <div class="box-tools pull-right">
-                    <!-- Buttons, labels, and many other things can be placed here! -->
-                    <!-- Here is a label for example -->
-                    <!--span class="label label-primary">Last 30 Days</span>-->
-                    </div>
-                    <!-- /.box-tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body table-responsive">
-                    <table class="table table-bordered table-striped ajaxTable">
-                        <thead>
-                        <tr> 
-                            <th> @lang('quickadmin.time-entries.fields.start-time')</th> 
-                            <th> @lang('quickadmin.time-entries.fields.end-time')</th> 
-                            <th> @lang('quickadmin.time-entries.fields.work-type')</th>
-                             
-                            <th>&nbsp;</th>
-                        </tr>
-                        </thead>
-                        @foreach($timeentries as $timeentry)
-                            <tr> 
-                                <td>{{ $timeentry->start_time }} </td> 
-                                <td>{{ $timeentry->end_time }} </td> 
-                                <td>{{ $timeentry->work_type->name }} </td>
-                                 
-                                <td>
-
-                                    @can('time_entry_view')
-                                    <a href="{{ route('admin.time_entries.show',[$timeentry->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-
-                                    @can('time_entry_edit')
-                                    <a href="{{ route('admin.time_entries.edit',[$timeentry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-
-                                    @can('time_entry_delete')
-                                    {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.time_entries.destroy', $timeentry->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
+    <div class="row-eq-height">
+        <div class = "col-sm-12 col-md-12">        
+            <div class="callout callout-info">
+                <h4>Welcome to SSW Tools Beta</h4>
+                <p>
+                So glad to have you join us! Please note that this is a beta version of the app which is still undergoing extensive development and final testing before its official release.
+                </p>
+                <p>
+                Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your particpation and feedback in Beta testing is highly appreciated.
+                </p>
+                <a href="#" class="callout-footer" onclick="convertfox.chat('openNewConversation')"><i class="fa fa-bug"></i>  Report Bug/Issue</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="https://feedback.feedier.com/hrR2TA?email={{ Auth::user()->email }}" class="callout-footer" target="_blank">
+                <i class="fa fa-arrow-circle-right"></i>  Feedback Survey</a>
             </div>
         </div>
-        <!-- /. Column -->
-
+    </div>    
+    
+    <div class="row">
         <div class = "col-sm-12 col-md-4">
             <!-- Quick Add Calendar -->                            
             <div class="box box-danger">
@@ -176,7 +54,7 @@
             
             @can('student_access')
             <!-- Student List Table -->
-            <div class="box box-primary">
+            <div class="box box-warning">
                 <div class="box-header with-border">
                 <i class="fa fa-table"></i>
                     <h3 class="box-title">My Students</h3>
@@ -261,332 +139,93 @@
             @endcan   
         </div>
         <!-- /.column -->
+        <div class = "col-sm-12 col-md-8">
+            
+            <!-- Worktype Chart -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <i class="fa fa-bar-chart"></i>
+                    <h3 class="box-title">Time By Work Type <small> Last 30 days</small></h3>
+                    <div class="box-tools pull-right">
+                    <!-- Buttons, labels, and many other things can be placed here! -->
+                    <!-- Here is a label for example -->
+                    <!--span class="label label-primary">Last 30 Days</span>-->
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <canvas id="worktypeChart" </canvas>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+            
+            <!-- Recent Time Entries Table -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                <i class="fa fa-table"></i>
+                    <h3 class="box-title">Recent Time Entries</h3>
+                    <div class="box-tools pull-right">
+                    <!-- Buttons, labels, and many other things can be placed here! -->
+                    <!-- Here is a label for example -->
+                    <!--span class="label label-primary">Last 30 Days</span>-->
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped ajaxTable">
+                        <thead>
+                        <tr> 
+                            <th> @lang('quickadmin.time-entries.fields.start-time')</th> 
+                            <th> @lang('quickadmin.time-entries.fields.end-time')</th> 
+                            <th> @lang('quickadmin.time-entries.fields.work-type')</th>
+                             
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+                        @foreach($timeentries as $timeentry)
+                            <tr> 
+                                <td>{{ $timeentry->start_time }} </td> 
+                                <td>{{ $timeentry->end_time }} </td> 
+                                <td>{{ $timeentry->work_type->name }} </td>
+                                 
+                                <td>
+
+                                    @can('time_entry_view')
+                                    <a href="{{ route('admin.time_entries.show',[$timeentry->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endcan
+
+                                    @can('time_entry_edit')
+                                    <a href="{{ route('admin.time_entries.edit',[$timeentry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @endcan
+
+                                    @can('time_entry_delete')
+                                    {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.time_entries.destroy', $timeentry->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>  
+            <!-- /. Recent time entries table -->
+        </div>
+        <!-- /. Column -->
     </div>
     <!-- /.row -->
-<!--------------------------------------------------------------------------------------------------------------------------------->
-<!-- /.Add/Update Event Modals -->
-    <!--create new entry modal-->
-    <div class="modal fade" id="createEvent" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        {!! Form::open(['id'=> 'eventNew', 'url'=>'calendar']) !!}
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add New Entry</h4>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-xs-12 col-md-6 form-group">
-                    {!! Form::label('start_time', trans('quickadmin.time-entries.fields.start-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('start_time', old('start_time'), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
-                    @if($errors->has('start_time'))
-                        <p class="help-block">
-                            {{ $errors->first('start_time') }}
-                        </p>
-                    @endif
-                </div>
-                <div class="col-xs-12 col-md-6 form-group">
-                    {!! Form::label('end_time', trans('quickadmin.time-entries.fields.end-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('end_time', old('end_time'), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
-                    @if($errors->has('end_time'))
-                        <p class="help-block">
-                            {{ $errors->first('end_time') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('work_type_id', trans('quickadmin.time-entries.fields.work-type').'*', ['class' => 'control-label']) !!}
-                    {!! Form::select('work_type_id', $work_types, old('work_type_id'), ['class' => 'form-control select2', 'required' => '']) !!}
-                    @if($errors->has('work_type_id'))
-                        <p class="help-block">
-                            {{ $errors->first('work_type_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div id= "population_caseload_row" class="row">
-                <div class="col-xs-12 col-md-8 form-group">
-                    {!! Form::label('population_type', trans('quickadmin.time-entries.fields.population-type').'*', ['class' => 'control-label']) !!}
-                    @if($errors->has('population_type'))
-                        <p class="help-block">
-                            {{ $errors->first('population_type') }}
-                        </p>
-                    @endif
-                    <br>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('population_type', 'SPED', false, ['required' => 'required']) !!}
-                            Special Ed
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('population_type', 'GenEd', false, ['required' => 'required']) !!}
-                            General Ed
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('population_type', 'Mixed', false, ['required' => 'required']) !!}
-                            Mixed
-                        </label>
-                    </div>
-                    <div class= "hidden">
-                        <label>
-                            {!! Form::radio('population_type', 'null', false, ['required' => 'required']) !!}
-                        </label>
-                    </div>
-                </div>
-            
-                <div class="col-xs-12 col-md-4 form-group">
-                    {!! Form::label('caseload', trans('quickadmin.time-entries.fields.caseload').'*', ['class' => 'control-label']) !!}
-                    @if($errors->has('caseload'))
-                        <p class="help-block">
-                            {{ $errors->first('caseload') }}
-                        </p>
-                    @endif
-                    <br>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('caseload', 'Yes', false, ['required' => 'required']) !!}
-                            Yes
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('caseload', 'No', false, ['required' => 'required']) !!}
-                            No
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('caseload', 'Mixed', false, ['required' => 'required']) !!}
-                            Mixed
-                        </label>
-                    </div>
-                    <div class= "hidden">
-                        <label>
-                            {!! Form::radio('caseload', 'null', false, ['required' => 'required']) !!}
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            @can('student_access')
-            <div id="student_row" class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('student', trans('quickadmin.time-entries.fields.student').'', ['class' => 'control-label']) !!}
-                    <button type="button" class="btn btn-primary btn-xs" id="selectbtn-student">
-                        {{ trans('quickadmin.qa_select_all') }}
-                    </button>
-                    <button type="button" class="btn btn-primary btn-xs" id="deselectbtn-student">
-                        {{ trans('quickadmin.qa_deselect_all') }}
-                    </button>
-                    {!! Form::select('student[]', $students, old('student'), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-student' ]) !!}
-                    @if($errors->has('student'))
-                        <p class="help-block">
-                            {{ $errors->first('student') }}
-                        </p>
-                    @endif
-                </div>
-            </div>@endcan
-            
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('description', trans('quickadmin.time-entries.fields.description').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => 'Brief description']) !!}
-                    @if($errors->has('description'))
-                        <p class="help-block">
-                            {{ $errors->first('description') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('notes', trans('quickadmin.time-entries.fields.notes').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('notes', old('notes'), ['class' => 'form-control ', 'placeholder' => 'Brief notes about this entry']) !!}
-                    @if($errors->has('notes'))
-                        <p class="help-block">
-                            {{ $errors->first('notes') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-        </div><!-- /.modal-body -->
-        <div class="modal-footer">
-            {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-primary pull-left']) !!}
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-        </div><!-- /.modal-footer -->
-        {!! Form::close() !!}
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <!--update entry modal-->
-    <div class="modal fade" id="updateEvent" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        {!! Form::open(['id'=> 'eventUpdate', 'url'=>'calendar']) !!}
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Edit Entry</h4>
-        </div>
-        <div class="modal-body">
-        <input type="text" id="event_id" name="event_id" class="hidden"> <!-- Event id hidden field -->
-        <div class="row">
-                <div class="col-xs-12 col-md-6 form-group">
-                    {!! Form::label('start_time', trans('quickadmin.time-entries.fields.start-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('start_time', old('start_time'), ['readonly'=>'true', 'onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
-                    @if($errors->has('start_time'))
-                        <p class="help-block">
-                            {{ $errors->first('start_time') }}
-                        </p>
-                    @endif
-                </div>
-                <div class="col-xs-12 col-md-6 form-group">
-                    {!! Form::label('end_time', trans('quickadmin.time-entries.fields.end-time').'*', ['class' => 'control-label']) !!}
-                    {!! Form::text('end_time', old('end_time'), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control datetime', 'placeholder' => '', 'required' => '']) !!}
-                    @if($errors->has('end_time'))
-                        <p class="help-block">
-                            {{ $errors->first('end_time') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('work_type_id', trans('quickadmin.time-entries.fields.work-type').'*', ['class' => 'control-label']) !!}
-                    {!! Form::select('work_type_id', $work_types, old('work_type_id'), ['class' => 'form-control select2', 'required' => '']) !!}
-                    @if($errors->has('work_type_id'))
-                        <p class="help-block">
-                            {{ $errors->first('work_type_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div id= "population_caseload_row" class="row">
-                <div class="col-xs-12 col-md-8 form-group">
-                    {!! Form::label('population_type', trans('quickadmin.time-entries.fields.population-type').'*', ['class' => 'control-label']) !!}
-                    @if($errors->has('population_type'))
-                        <p class="help-block">
-                            {{ $errors->first('population_type') }}
-                        </p>
-                    @endif
-                    <br>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('population_type', 'SPED', false, ['required' => 'required']) !!}
-                            Special Ed
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('population_type', 'GenEd', false, ['required' => 'required']) !!}
-                            General Ed
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('population_type', 'Mixed', false, ['required' => 'required']) !!}
-                            Mixed
-                        </label>
-                    </div>
-                    <div class= "hidden">
-                        <label>
-                            {!! Form::radio('population_type', 0, false, ['required' => 'required']) !!}
-                        </label>
-                    </div>
-                    
-                </div>
-            
-                <div class="col-xs-12 col-md-4 form-group">
-                    {!! Form::label('caseload', trans('quickadmin.time-entries.fields.caseload').'*', ['class' => 'control-label']) !!}
-                    @if($errors->has('caseload'))
-                        <p class="help-block">
-                            {{ $errors->first('caseload') }}
-                        </p>
-                    @endif
-                    <br>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('caseload', 'Yes', false, ['required' => 'required']) !!}
-                            Yes
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('caseload', 'No', false, ['required' => 'required']) !!}
-                            No
-                        </label>
-                    </div>
-                    <div class= "radio-inline">
-                        <label>
-                            {!! Form::radio('caseload', 'Mixed', false, ['required' => 'required']) !!}
-                            Mixed
-                        </label>
-                    </div>
-                    <div class= "hidden">
-                        <label>
-                            {!! Form::radio('caseload', 0, false, ['required' => 'required']) !!}
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            @can('student_access')
-            <div id="student_row" class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('student', trans('quickadmin.time-entries.fields.student').'', ['class' => 'control-label']) !!}
-                    <button type="button" class="btn btn-primary btn-xs" id="selectbtn-student">
-                        {{ trans('quickadmin.qa_select_all') }}
-                    </button>
-                    <button type="button" class="btn btn-primary btn-xs" id="deselectbtn-student">
-                        {{ trans('quickadmin.qa_deselect_all') }}
-                    </button>
-                    {!! Form::select('student[]', $students, old('student'), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-student' ]) !!}
-                    @if($errors->has('student'))
-                        <p class="help-block">
-                            {{ $errors->first('student') }}
-                        </p>
-                    @endif
-                </div>
-            </div>@endcan
-
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('description', trans('quickadmin.time-entries.fields.description').'', ['class' => 'control-label']) !!}
-                    {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => 'Brief description']) !!}
-                    @if($errors->has('description'))
-                        <p class="help-block">
-                            {{ $errors->first('description') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('notes', trans('quickadmin.time-entries.fields.notes').'', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('notes', old('notes'), ['class' => 'form-control ', 'placeholder' => 'Brief notes about this entry']) !!}
-                    @if($errors->has('notes'))
-                        <p class="help-block">
-                            {{ $errors->first('notes') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-        </div><!-- /.modal-body -->
-        <div class="modal-footer">
-            {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-primary pull-left']) !!}
-            {!! Form::button(trans('quickadmin.qa_delete'), ['id' => 'eventDelete', 'class' => 'btn btn-danger pull-left']) !!}
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-        </div><!-- /.modal-footer -->
-        {!! Form::close() !!}
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+@include('partials.timeEntryModals')
 @endsection
 
 @section ('javascript')
@@ -630,7 +269,7 @@ $(document).ready(function(){
     
     var ctx = document.getElementById("worktypeChart").getContext('2d');
     var workTypeChart = new Chart(ctx, {
-        type: 'horizontalBar',
+        type: 'doughnut',
         data: {
             labels: workTypeLabels,
             datasets: [{
@@ -655,23 +294,33 @@ $(document).ready(function(){
                     '#d2d6de'   
                 ],
                 
-                borderWidth: 1
+                borderWidth: 3
             }]
         },
         options: {                
-            scales: {
-                    xAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                },
+            
             legend: {
-                display: false,
+                display: true,
+                position: 'right',
                 labels: {
-                boxWidth: 0,
+                boxWidth: 10,
                 }
-            }
+            },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                        var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                        var total = meta.total;
+                        var currentValue = dataset.data[tooltipItem.index];
+                        var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                        return currentValue + ' (' + percentage + '%)';
+                    },
+                    title: function(tooltipItem, data) {
+                        return data.labels[tooltipItem[0].index];
+                    }
+                }
+            }, 
         }
     });
 </script>
@@ -715,7 +364,7 @@ $(document).ready(function(){
             selectOverlap: false,
             editable: true,
             slotDuration: '00:15:00',
-            height: 500,
+            height: 425,
             eventOverlap: false,
             nowIndicator: true,
             scrollTime: scrollTime,

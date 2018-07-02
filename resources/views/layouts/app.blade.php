@@ -55,6 +55,7 @@
 {!! Form::close() !!}
 
 @include('partials.javascripts')
+
 <!--beamer notifications script-->
 <script>
 	var beamer_config = {
