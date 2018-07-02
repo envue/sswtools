@@ -40,7 +40,7 @@
                     </div>
                     <div id="collapse{{ $work_type['id'] }}" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <p>{{ $work_type['description'] }}.</p>
+                            <p>{{ $work_type['description'] }}</p>
                         </div>
                     </div>
                 </div>
