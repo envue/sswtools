@@ -62,6 +62,7 @@
                     <!-- Buttons, labels, and many other things can be placed here! -->
                     <!-- Here is a label for example -->
                     <!--span class="label label-primary">Last 30 Days</span>-->
+                    <a class="btn btn-box-tool" href="{{url('admin/students')}}">View All</a>
                     </div>
                     <!-- /.box-tools -->
                 </div>

@@ -55,8 +55,6 @@
 {!! Form::close() !!}
 
 @include('partials.javascripts')
-
-<!--beamer notifications script-->
 <script>
 	var beamer_config = {
 		product_id : "aONXugsr3184", //DO NOT CHANGE: This is your product code on Beamer
