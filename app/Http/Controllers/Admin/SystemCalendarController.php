@@ -19,11 +19,17 @@ class SystemCalendarController extends Controller
         $work_types = \App\TimeWorkType::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $students = \App\Student::get()->pluck('identifier', 'id');
 
+        //Create an array of option attribute
+        $work_types_descriptions = \App\TimeWorkType::get()
+        ->mapWithKeys(function ($item) {
+                        return [$item->id => ['title' => $item->description]];
+                    })->all();
+
         $created_bies = \App\User::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $created_by_teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         
-        return view('admin.calendar', compact('studentTest', 'work_types', 'students', 'created_bies', 'created_by_teams'));
+        return view('admin.calendar', compact('studentTest', 'work_types', 'work_types_descriptions','students', 'created_bies', 'created_by_teams'));
     }
 
     /**
