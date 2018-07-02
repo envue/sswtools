@@ -251,13 +251,6 @@ $(document).ready(function(){
         } );
 </script>
 
-<!-- tooltip script -->
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip(); 
-    });
-</script>
-
 <!-- Chartjs script -->
 <script>
     var workTypeData = {!! json_encode($workTypeData)  !!};
