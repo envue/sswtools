@@ -55,8 +55,7 @@ We do not sell, share, rent or trade this information we have collected about yo
 We do not share your Personal Information with third parties for those third parties' direct marketing purposes.
 </p>
 <p>
-<br>
-We may share non-personally identifiable information, such as aggregated user statistics and log data, with third parties for industry analysis, academic research, publishing findings on our website, or for other business purposes. 
+We may share <strong>non-personally identifiable information</strong>, such as aggregated user statistics and log data, with third parties for industry analysis, academic research, publishing findings on our website, or for other business purposes. 
 </p>
 <p>
 <strong>Use of 3rd Party Analytics and Communication Services</strong>
