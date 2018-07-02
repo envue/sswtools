@@ -86,7 +86,7 @@ It is our policy to post any changes we make to our privacy policy on this page.
 </p>
 <p>
 <strong><br>
-</strong>To ask questions or comment about this agreement, terms, or privacy policy and our privacy practices, contact us at: scott@envuetudiois.com.
+</strong>To ask questions or comment about this agreement, terms, or privacy policy and our privacy practices, contact us at: scott@envuetudios.com.
 </p>
 
 </div>
