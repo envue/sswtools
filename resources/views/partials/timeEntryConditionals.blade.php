@@ -1,5 +1,6 @@
 <script>
     //script to conditional show/hide fields based on work_type_id
+    // This script is for the edit and create time entry forms that are NOT associated with the calendars
     $('#work_type_id').change(function () {
     var val = $(this).val();
 

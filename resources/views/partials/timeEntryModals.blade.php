@@ -1,3 +1,13 @@
+<!-- Styles for the "disabled" start and endtime fields -->
+<style>
+    .fc-today{
+        background-color:inherit !important;
+        }
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control { 
+        background-color: #fff !important; opacity: 1; 
+        }
+</style>
+
 <!--create new entry modal-->
 <div class="modal fade" id="createEvent" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
