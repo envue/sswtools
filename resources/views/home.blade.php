@@ -17,6 +17,8 @@
                 Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your particpation and feedback in Beta testing is highly appreciated.
                 </p>
                 <a href="#" class="callout-footer" onclick="convertfox.chat('openNewConversation')"><i class="fa fa-bug"></i>  Report Bug/Issue</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://projects.envuestudios.com/p/t6afzvnqqsxhticjc" class="callout-footer" target="_blank"><i class="fa fa-map"></i>  Public Roadmap</a>
             </div>
         </div>
     </div>    
