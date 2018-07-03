@@ -4,23 +4,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"/>
     
     <meta name="csrf-token" content="{{ csrf_token() }}"> 
-    <h3> Dashboard <small>Control panel</small> </h3>
+    <h3> Dashboard </h3>
 
     <div class="row">
-        <div class = "col-sm-12 col-md-12">        
-            <div class="callout callout-info">
-                <h4>Welcome to SSW Tools Beta</h4>
+        <div class="col-md-6 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h4><strong>Welcome to SSW Tools Beta</strong></h4>
                 <p>
                 So glad to have you join us! Please note that this is a beta version of the app which is still undergoing extensive development and final testing before its official release.
                 </p>
                 <p>
                 Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your particpation and feedback in Beta testing is highly appreciated.
                 </p>
-                <a href="#" class="callout-footer" onclick="convertfox.chat('openNewConversation')"><i class="fa fa-bug"></i>  Report Bug/Issue</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="https://projects.envuestudios.com/p/t6afzvnqqsxhticjc" class="callout-footer" target="_blank"><i class="fa fa-map"></i>  Public Roadmap</a>
             </div>
+            <div class="icon">
+              <i class="fa fa-info"></i>
+            </div>
+            <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')"><i class="fa fa-bug"></i>  Report Bug/Issue</a>
+          </div>
         </div>
+        <div class="col-md-6 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h4><strong>Join Our Facebook Group</strong></h4>
+                <p>
+                We invite you to join our closed Facebook group just for Beta users to connect, share feedback, ask questions, and learn how to use the app to support their practice.
+                </p>
+                <p>
+                We have big ambitions for the SSW Tools App and we need your help getting there. Your participation in the group will help us to establish a feedback loop to further develop and refine the features of SSW Tools. We hope to see you there!
+                </p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-facebook"></i>
+            </div>
+            <a href="https://www.facebook.com/groups/sswtools/" target="_blank" class="small-box-footer"><i class="fa fa-facebook"></i>  Join Facebook Group</a>
+          </div>
+        </div>
+
     </div>    
     
     <div class="row">
