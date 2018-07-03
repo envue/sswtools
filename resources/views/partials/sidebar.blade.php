@@ -190,25 +190,25 @@
                                 </a>
                             </li>@endcan
                             
+                            @can('time_work_type_access')
+                            <li>
+                                <a href="{{ route('admin.time_work_types.index') }}">
+                                    <i class="fa fa-th"></i>
+                                    <span>@lang('quickadmin.time-work-types.title')</span>
+                                </a>
+                            </li>@endcan
+
+                            @can('time_project_access')
+                            <li>
+                                <a href="{{ route('admin.time_projects.index') }}">
+                                    <i class="fa fa-users"></i>
+                                    <span>@lang('quickadmin.time-projects.title')-placeholder</span>
+                                </a>
+                            </li>@endcan
                         </ul>
                     </li>@endcan
-                    @can('time_work_type_access')
-                    <li>
-                        <a href="{{ route('admin.time_work_types.index') }}">
-                            <i class="fa fa-th"></i>
-                            <span>@lang('quickadmin.time-work-types.title')</span>
-                        </a>
-                    </li>@endcan
                     
-                    @can('time_project_access')
-                    <li>
-                        <a href="{{ route('admin.time_projects.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span>@lang('quickadmin.time-projects.title')-Empty</span>
-                        </a>
-                    </li>@endcan
-
-                                @can('system_admin_access')
+                    @can('system_admin_access')
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-line-chart"></i>
