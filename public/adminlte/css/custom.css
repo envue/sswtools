@@ -7,18 +7,23 @@
     width: 100% !important;
 }
 
-/* Overwrite the default to keep the scrollbar always visible */
+/* Overwrite the default to keep the scrollbar always visible on lists */
 
 ul::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
-}
+  }
 
 ul::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(0,0,0,.5);
-    box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
+    background: #666;
+    border-radius: 20px;
+  }
+  
+ul::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 20px;
+  }
+
 
 @media (min-width: 768px) {
     .control-sidebar-open .content-wrapper, .control-sidebar-open .right-side, .control-sidebar-open .main-footer {
