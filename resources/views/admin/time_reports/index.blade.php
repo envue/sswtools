@@ -252,7 +252,24 @@
                     labels: {
                     boxWidth: 0,
                     }
-                }
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var dataset = data.datasets[tooltipItem.datasetIndex];
+                            var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                                return previousValue + currentValue;
+                            });
+                            var currentValue = dataset.data[tooltipItem.index];
+                            var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                            return currentValue + ' (' + percentage + '%)';
+                        },
+                        title: function(tooltipItem, data) {
+                            return data.labels[tooltipItem[0].index];
+                        }
+                    }
+                },
             }
         });
         var ctx = document.getElementById("populationChart").getContext('2d');
@@ -284,6 +301,23 @@
                     borderWidth: 1
                 }]
             },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var dataset = data.datasets[tooltipItem.datasetIndex];
+                            var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                            var total = meta.total;
+                            var currentValue = dataset.data[tooltipItem.index];
+                            var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                            return currentValue + ' (' + percentage + '%)';
+                        },
+                        title: function(tooltipItem, data) {
+                            return data.labels[tooltipItem[0].index];
+                        }
+                    }
+                },
+            },
         });
         var ctx = document.getElementById("caseloadChart").getContext('2d');
         var caseloadChart = new Chart(ctx, {
@@ -311,6 +345,23 @@
                     ],
                     borderWidth: 1
                 }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var dataset = data.datasets[tooltipItem.datasetIndex];
+                            var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                            var total = meta.total;
+                            var currentValue = dataset.data[tooltipItem.index];
+                            var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                            return currentValue + ' (' + percentage + '%)';
+                        },
+                        title: function(tooltipItem, data) {
+                            return data.labels[tooltipItem[0].index];
+                        }
+                    }
+                },
             },
         });
     </script>
