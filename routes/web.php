@@ -1,5 +1,6 @@
 <?php
-Route::get('/', function () { return redirect('/admin/home'); });
+//Route::get('/', function () { return redirect('/admin/home'); });
+Route::get('/', 'HomeController@index');
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -17,7 +18,7 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
 // Registration Routes..
-$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('auth.register');
+$this->get('register', 'Auth\phRegisterController@showRegistrationForm')->name('auth.register');
 $this->post('register', 'Auth\RegisterController@register')->name('auth.register');
 
 // Social Login Routes..
