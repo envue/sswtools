@@ -367,6 +367,8 @@ $(document).ready(function(){
             var startDate = moment(start).format('MM/DD/YYYY hh:mm A');
             var endDate = moment(end).format('MM/DD/YYYY hh:mm A');
             $('#createEvent').modal();
+            $('#eventNew').trigger("reset");
+            $('#work_type_id, #selectall-student').change();
             $(".modal-body #start_time").val(startDate);
             $(".modal-body #end_time").val(endDate);
         }

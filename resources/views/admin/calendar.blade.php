@@ -22,6 +22,7 @@
     <script src="{{ url('adminlte/plugins/datetimepicker/moment-with-locales.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
+       
     <script>
         $(document).ready(function(){
             // Full calendar JS and Options
@@ -122,6 +123,8 @@
                     var startDate = moment(start).format('MM/DD/YYYY hh:mm A');
                     var endDate = moment(end).format('MM/DD/YYYY hh:mm A');
                     $('#createEvent').modal();
+                    $('#eventNew').trigger("reset");
+                    $('#work_type_id, #selectall-student').change();
                     $(".modal-body #start_time").val(startDate);
                     $(".modal-body #end_time").val(endDate);
                 }
