@@ -29,18 +29,18 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h4><strong>Join Our Facebook Group</strong></h4>
+              <h4><strong>Join Our SSWN Community</strong></h4>
                 <p>
-                We invite you to join our closed Facebook group just for Beta users to connect, share feedback, ask questions, and learn how to use the app to support their practice.
+                We invite you to join our SSWN Community group just for Beta users to connect, share feedback, ask questions, and learn how to use the app to support their practice.
                 </p>
                 <p>
                 We have big ambitions for the SSW Tools App and we need your help getting there. Your participation in the group will help us to establish a feedback loop to further develop and refine the features of SSW Tools. We hope to see you there!
                 </p>
             </div>
             <div class="icon">
-              <i class="fa fa-facebook"></i>
+              <i class="fa fa-users"></i>
             </div>
-            <a href="https://www.facebook.com/groups/sswtools/" target="_blank" class="small-box-footer"><i class="fa fa-facebook"></i>  Join Facebook Group</a>
+            <a href="https://schoolsocialworkers.mn.co/share/cS6sLrIpVbyetNeh?utm_source=manual" target="_blank" class="small-box-footer"><i class="fa fa-users"></i>  Join SSW Tools Group</a>
           </div>
         </div>
 
@@ -323,7 +323,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type:'POST',
-                url: 'calendar/' + calEvent.id,
+                url: 'admin/calendar/' + calEvent.id,
                 dataType:"json",
                 data: {
                     _method : "PATCH",
@@ -349,7 +349,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type:'POST',
-                url: 'calendar/' + calEvent.id,
+                url: 'admin/calendar/' + calEvent.id,
                 dataType:"json",
                 data: {
                     _method : "PATCH",
@@ -403,7 +403,7 @@ $(document).ready(function(){
 
         $.ajax({
             type:"POST",
-            url:'calendar',
+            url:'admin/calendar',
             data:$(this).serialize(),
             dataType: 'json',
             success: function(text){
@@ -427,7 +427,7 @@ $(document).ready(function(){
 
         $.ajax({
             type:"PUT",
-            url:'calendar/form_update/' + id,
+            url:'admin/calendar/form_update/' + id,
             data:$(this).serialize(),
             dataType: 'json',
             success: function(text){
@@ -454,7 +454,7 @@ $(document).ready(function(){
         if(didConfirm){
             $.ajax({
                 type:"DELETE",
-                url:'calendar/' + id,
+                url:'admin/calendar/' + id,
                 data:$(this).serialize(),
                 dataType: 'json',
                 success: function(text){
