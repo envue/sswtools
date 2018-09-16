@@ -92,21 +92,6 @@ class TimeReportsController extends Controller
         $populationTypeMinutes = array_sum($populationTypeData);
         $caseloadTypeMinutes = array_sum($caseloadTypeData);
 
-        // Time entered infobox
-        $totalhours = floor(array_sum($workTypeData) / 60);
-        $remaining_minutes = array_sum($workTypeData) % 60;
-
-        // Number of weekdays infobox
-        $weekdays = $from->diffInWeekdays($to);
-
-        // Non-compensated time infobox
-        $daily_work_hours = 7.5;
-        $work_minutes = $daily_work_hours * 60;
-        $expected_work_time = $weekdays * $work_minutes; //output in minutes
-        $noncomp_hours = max(floor(($workTypeMinutes - $expected_work_time) / 60 ), 0); //returns 0 if negative
-        $noncomp_minutes = max(($workTypeMinutes - $expected_work_time) % 60 , 0);
-        $entriescount = count($time_entries);
-
         return view('admin.time_reports.index', compact(
             'population_type_time',
             'caseload_time',
@@ -117,12 +102,6 @@ class TimeReportsController extends Controller
             'workTypeLabels',
             'populationTypeLabels',
             'caseloadTypeLabels',
-            'totalhours',
-            'remaining_minutes',
-            'weekdays',
-            'noncomp_minutes',
-            'noncomp_hours',
-            'entriescount',
             'workTypeMinutes',
             'populationTypeMinutes',
             'caseloadTypeMinutes'
