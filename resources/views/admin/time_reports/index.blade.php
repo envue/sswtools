@@ -26,53 +26,7 @@
         </div>
     {!! Form::close() !!}
     <br>
-    <div class ="row">
-        <div class = "col-sm-12 col-xs-12 col-md-4">
-            <div class="info-box">
-                <!-- Apply any bg-* class to to the icon to color it -->
-                <span class="info-box-icon bg-green"><i class="fa fa-clock-o"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Time recorded</span>
-                    <span class="info-box-number">{!! $totalhours !!} hour(s) {!! $remaining_minutes !!} min(s)</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-        
-        <div class = "col-sm-12 col-xs-12 col-md-4">
-            <div class="info-box">
-                <!-- Apply any bg-* class to to the icon to color it -->
-                <span class="info-box-icon bg-red"><i class="fa fa-warning"></i></span>
-                <div class="info-box-content">
-                        <div class="box-tools pull-right">
-                            <!-- Buttons, labels, and many other things can be placed here! -->
-                             <button type="button" style="padding: 1px 3px" class="btn" data-toggle="tooltip" data-placement="left" title="" data-original-title="This calculation assumes a 7.5 hour working day and that all weekdays were working days for the period. A customizable solution is on the roadmap.">
-                             <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                             </button>
-                        </div>
-                    <span class="info-box-text">Uncompensated time</span>
-                    <span class="info-box-number">{!! $noncomp_hours !!} hour(s) {!! $noncomp_minutes !!} min(s)</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-
-        <div class = "col-sm-12 col-xs-12 col-md-4">
-            <div class="info-box">
-                <!-- Apply any bg-* class to to the icon to color it -->
-                <span class="info-box-icon bg-aqua"><i class="fa fa-star-o"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Number of Entries</span>
-                    <span class="info-box-number">{!! $entriescount !!}</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-    </div>
-    
+      
     <div class = "row">
         <div class = "col-sm-12 col-md-8">
             <div class="box box-primary">
