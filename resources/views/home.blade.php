@@ -40,7 +40,7 @@
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="https://schoolsocialworkers.mn.co/share/cS6sLrIpVbyetNeh?utm_source=manual" target="_blank" class="small-box-footer"><i class="fa fa-users"></i>  Join SSW Tools Group</a>
+            <a href="https://schoolsocialworkers.mn.co/share/jJDFgIXGw0us-hm7?utm_source=manual" target="_blank" class="small-box-footer"><i class="fa fa-users"></i>  Join SSW Tools Group</a>
           </div>
         </div>
 
