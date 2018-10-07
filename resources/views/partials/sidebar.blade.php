@@ -87,7 +87,6 @@
             </li>@endcan
             
             
-            
             @can('system_admin_access')
             <li class="treeview">
                 <a href="#">

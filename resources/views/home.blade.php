@@ -7,15 +7,28 @@
 
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"/>
-    
+    <style>
+        @media (max-width:767px){
+            .home-widget {
+                font-size: 20px!important;
+            }
+        }
+    </style>
+
     <meta name="csrf-token" content="{{ csrf_token() }}"> 
     <h3> Dashboard </h3>
+    
     <div class="row">
-        <div class="col-md-4 col-xs-12">
+        @can('student_access')
+        <div class="col-md-3 col-xs-6">
+        @endcan
+        @cannot('student_access')
+        <div class="col-md-4 col-xs-6">
+        @endcannot
           <!-- small box -->
           <div class="small-box bg-maroon">
             <div class="inner">
-              <h2><strong>Calendar</strong></h2>
+              <h2 class=home-widget><strong>Calendar</strong></h2>
                 <p>
                 Create/edit time entires
                 </p>
@@ -26,28 +39,18 @@
             <a href="{{url('admin/calendar')}}" class="small-box-footer">View Calendar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-md-4 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-aqua-active">
-            <div class="inner">
-              <h2><strong>Time Entries Table</strong></h2>
-                <p>
-                Bulk manage and export time entires
-                </p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-table"></i>
-            </div>
-            <a href="{{ route('admin.time_entries.index') }}" class="small-box-footer">View Time Entries Table <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-12">
+        @can('student_access')
+        <div class="col-md-3 col-xs-6">
+        @endcan
+        @cannot('student_access')
+        <div class="col-md-4 col-xs-6">
+        @endcannot
           <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">
-             <h2><strong>Time Report</strong></h2>
+             <h2 class=home-widget><strong>Time Report</strong></h2>
                 <p>
-                Generate reports of work time
+                Generate work time report
                 </p>
             </div>
             <div class="icon">
@@ -56,7 +59,43 @@
             <a href="{{ route('admin.time_reports.index') }}" class="small-box-footer">View Report <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-
+        @can('student_access')
+        <div class="col-md-3 col-xs-6">
+        @endcan
+        @cannot('student_access')
+        <div class="col-md-4 col-xs-6">
+        @endcannot
+          <!-- small box -->
+          <div class="small-box bg-aqua-active">
+            <div class="inner">
+              <h2 class=home-widget><strong>Time Table</strong></h2>
+                <p>
+                Search and export time entires
+                </p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-table"></i>
+            </div>
+            <a href="{{ route('admin.time_entries.index') }}" class="small-box-footer">View Time Entries Table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        @can('student_access')
+        <div class="col-md-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-orange">
+            <div class="inner">
+              <h2 class=home-widget><strong>Students</strong></h2>
+                <p>
+                Add/edit students for time entries
+                </p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-graduation-cap"></i>
+            </div>
+            <a href="{{ route('admin.students.index') }}" class="small-box-footer">View Students <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        @endcan
     </div>    
     
     <div class="row">
@@ -229,7 +268,7 @@ $(document).ready(function(){
         selectOverlap: false,
         editable: true,
         slotDuration: '00:15:00',
-        height: 425,
+        height: 500,
         eventOverlap: false,
         nowIndicator: true,
         scrollTime: scrollTime,
