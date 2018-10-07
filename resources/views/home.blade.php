@@ -50,7 +50,7 @@
             <div class="inner">
              <h2 class=home-widget><strong>Time Report</strong></h2>
                 <p>
-                Generate work time report
+                Generate time reports
                 </p>
             </div>
             <div class="icon">
@@ -76,7 +76,7 @@
             <div class="icon">
               <i class="fa fa-table"></i>
             </div>
-            <a href="{{ route('admin.time_entries.index') }}" class="small-box-footer">View Time Entries Table <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.time_entries.index') }}" class="small-box-footer">View Time Table <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         @can('student_access')
