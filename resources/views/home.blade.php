@@ -1,46 +1,59 @@
 @extends('layouts.app')
 
+@php
+        $content = 'https://schoolsocialwork.net/feed/';
+        $articles = simplexml_load_file($content);      
+@endphp
+
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"/>
     
     <meta name="csrf-token" content="{{ csrf_token() }}"> 
     <h3> Dashboard </h3>
-
     <div class="row">
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-4 col-xs-12">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box bg-maroon">
             <div class="inner">
-              <h4><strong>Welcome to SSW Tools Beta</strong></h4>
+              <h2><strong>Calendar</strong></h2>
                 <p>
-                So glad to have you join us! Please note that this is a beta version of the app which is still undergoing extensive development and final testing before its official release.
-                </p>
-                <p>
-                Should you encounter any bugs, glitches, lack of functionality or other problems on the website, please let us know immediately so we can rectify these accordingly. Your particpation and feedback in Beta testing is highly appreciated.
+                Create/edit time entires
                 </p>
             </div>
             <div class="icon">
-              <i class="fa fa-info"></i>
+              <i class="fa fa-calendar"></i>
             </div>
-            <a href="#" class="small-box-footer" onclick="convertfox.chat('openNewConversation')"><i class="fa fa-bug"></i>  Report Bug/Issue</a>
+            <a href="{{url('admin/calendar')}}" class="small-box-footer">View Calendar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-4 col-xs-12">
           <!-- small box -->
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-aqua-active">
             <div class="inner">
-              <h4><strong>Join Our SSWN Community</strong></h4>
+              <h2><strong>Time Entries Table</strong></h2>
                 <p>
-                We invite you to join our SSWN Community group just for Beta users to connect, share feedback, ask questions, and learn how to use the app to support their practice.
-                </p>
-                <p>
-                We have big ambitions for the SSW Tools App and we need your help getting there. Your participation in the group will help us to establish a feedback loop to further develop and refine the features of SSW Tools. We hope to see you there!
+                Bulk manage and export time entires
                 </p>
             </div>
             <div class="icon">
-              <i class="fa fa-users"></i>
+              <i class="fa fa-table"></i>
             </div>
-            <a href="https://schoolsocialworkers.mn.co/share/jJDFgIXGw0us-hm7?utm_source=manual" target="_blank" class="small-box-footer"><i class="fa fa-users"></i>  Join SSW Tools Group</a>
+            <a href="{{ route('admin.time_entries.index') }}" class="small-box-footer">View Time Entries Table <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-purple">
+            <div class="inner">
+             <h2><strong>Time Report</strong></h2>
+                <p>
+                Generate reports of work time
+                </p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-bar-chart"></i>
+            </div>
+            <a href="{{ route('admin.time_reports.index') }}" class="small-box-footer">View Report <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -49,7 +62,7 @@
     <div class="row">
         <div class = "col-sm-12 col-md-4">
             <!-- Quick Add Calendar -->                            
-            <div class="box box-danger">
+            <div class="box box-default">
                 <div class="box-header with-border">
                     <i class="fa fa-calendar"></i>
                     <h3 class="box-title">Quick Add Entry</h3>
@@ -66,99 +79,11 @@
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
-            
-            @can('student_access')
-            <!-- Student List Table -->
-            <div class="box box-warning">
-                <div class="box-header with-border">
-                <i class="fa fa-table"></i>
-                    <h3 class="box-title">My Students</h3>
-                    <div class="box-tools pull-right">
-                    <!-- Buttons, labels, and many other things can be placed here! -->
-                    <!-- Here is a label for example -->
-                    <!--span class="label label-primary">Last 30 Days</span>-->
-                    <a class="btn btn-box-tool" href="{{url('admin/students')}}">View All</a>
-                    </div>
-                    <!-- /.box-tools -->
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body table-responsive">
-                    <table id="students_table" class="table table-bordered table-striped {{ count($students) > 0 ? 'datatable' : '' }}">
-                        <thead>
-                            <tr>
-                                <th>@lang('quickadmin.students.fields.identifier')</th>
-                                            
-                                @if( request('show_deleted') == 1 )
-                                <th>&nbsp;</th>
-                                @else
-                                <th>&nbsp;</th>
-                                @endif
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @if (count($students_list) > 0)
-                                @foreach ($students_list as $student)
-                                    <tr data-entry-id="{{ $student->id }}">
-                                        <td field-key='identifier'>{{ $student->identifier }}</td>
-                                        @if( request('show_deleted') == 1 )
-                                        <td>
-                                            @can('student_delete')
-                                                                                {!! Form::open(array(
-                                                'style' => 'display: inline-block;',
-                                                'method' => 'POST',
-                                                'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                                'route' => ['admin.students.restore', $student->id])) !!}
-                                            {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
-                                            {!! Form::close() !!}
-                                        @endcan
-                                            @can('student_delete')
-                                                                                {!! Form::open(array(
-                                                'style' => 'display: inline-block;',
-                                                'method' => 'DELETE',
-                                                'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                                'route' => ['admin.students.perma_del', $student->id])) !!}
-                                            {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                            {!! Form::close() !!}
-                                        @endcan
-                                        </td>
-                                        @else
-                                        <td>
-                                            @can('student_view')
-                                            <a href="{{ route('admin.students.show',[$student->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                            @endcan
-                                            @can('student_edit')
-                                            <a href="{{ route('admin.students.edit',[$student->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                            @endcan
-                                            @can('student_delete')
-                                                        {!! Form::open(array(
-                                                            'style' => 'display: inline-block;',
-                                                            'method' => 'DELETE',
-                                                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                                            'route' => ['admin.students.destroy', $student->id])) !!}
-                                                        {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                                        {!! Form::close() !!}
-                                                        @endcan
-                                                    </td>
-                                                    @endif
-                                    </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
-                                </tr>
-                            @endif
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            @endcan   
-        </div>
+         </div>  
         <!-- /.column -->
-        <div class = "col-sm-12 col-md-8">
-            
+        <div class = "col-sm-12 col-md-4">    
             <!-- Worktype Chart -->
-            <div class="box box-primary">
+            <div class="box box-default">
                 <div class="box-header with-border">
                     <i class="fa fa-bar-chart"></i>
                     <h3 class="box-title">Time Overview <small> (Last 30 days)</small></h3>
@@ -172,13 +97,12 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <canvas id="worktypeChart" </canvas>
+                    <canvas id="worktypeChart"></canvas>
                 </div>
             </div>
             <!-- /.box -->
-            
             <!-- Recent Time Entries Table -->
-            <div class="box box-info">
+            <div class="box box-default">
                 <div class="box-header with-border">
                 <i class="fa fa-table"></i>
                     <h3 class="box-title">Recent Time Entries</h3>
@@ -195,8 +119,7 @@
                     <table class="table table-bordered table-striped ajaxTable">
                         <thead>
                         <tr> 
-                            <th> @lang('quickadmin.time-entries.fields.start-time')</th> 
-                            <th> @lang('quickadmin.time-entries.fields.end-time')</th> 
+                            <th> @lang('quickadmin.time-entries.fields.start-time')</th>  
                             <th> @lang('quickadmin.time-entries.fields.work-type')</th>
                              
                             <th>&nbsp;</th>
@@ -205,36 +128,54 @@
                         @foreach($timeentries as $timeentry)
                             <tr> 
                                 <td>{{ $timeentry->start_time }} </td> 
-                                <td>{{ $timeentry->end_time }} </td> 
                                 <td>{{ $timeentry->work_type->name }} </td>
                                  
                                 <td>
-
                                     @can('time_entry_view')
                                     <a href="{{ route('admin.time_entries.show',[$timeentry->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-
-                                    @can('time_entry_edit')
-                                    <a href="{{ route('admin.time_entries.edit',[$timeentry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-
-                                    @can('time_entry_delete')
-                                    {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.time_entries.destroy', $timeentry->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                
+                                    @endcan                               
                                 </td>
                             </tr>
                         @endforeach
                     </table>
                 </div>
             </div>  
-            <!-- /. Recent time entries table -->
+            <!-- /. Recent time entries table -->    
+        </div>
+        <!-- /. Column -->
+        <div class = "col-sm-12 col-md-4">
+            <div class="box box-default">
+            <div class="box-header with-border">
+            <i class="fa fa-wordpress"></i>
+              <h3 class="box-title">Recent Blog Posts</h3>
+                <div class="box-tools pull-right">
+                    <!-- Buttons, labels, and many other things can be placed here! -->
+                    <a class="btn btn-box-tool" href="https://schoolsocialwork.net" target="_blank">View All</a>
+                    </div>
+                    <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <ul class="products-list product-list-in-box">
+                @foreach($articles->channel->item as $item) 
+                <li class="item">
+                  <div class="product-img">
+                    <img src="{{$item->children( 'media', True )->content->attributes()['url']}}" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="{{$item->link}}" class="product-title" target="_blank" >{{$item->title}}</a>
+                    <span class="product-description">
+                          {{html_entity_decode($item->description)}}
+                        </span>
+                  </div>
+                </li>
+                <!-- /.item -->
+                @endforeach
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
         <!-- /. Column -->
     </div>
@@ -545,7 +486,7 @@ $(document).ready(function(){
         options: {                
             
             legend: {
-                display: true,
+                display: false,
                 position: 'right',
                 labels: {
                 boxWidth: 10,

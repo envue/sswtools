@@ -24,8 +24,9 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {     
         
+        //variables for tables
         $timeentries = \App\TimeEntry::with('work_type')->latest()->limit(5)->get();
         $students_list = \App\Student::all(); 
 

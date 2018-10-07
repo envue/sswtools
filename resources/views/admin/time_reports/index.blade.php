@@ -1,28 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control { 
-        background-color: #fff !important; opacity: 1; 
-        }
-</style>
 
-    <h3 class="page-title">Reports</h3> 
+<h3 class="page-title">Time Overview Report</h3>
 
     {!! Form::open(['method' => 'get']) !!}
         <div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-2 form-group">
-                {!! Form::label('from','From',['class' => 'control-label']) !!}
-                {!! Form::text('from', old('from', Request::get('from', date('m/d/Y', strtotime('-30 days')))), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control date', 'placeholder' => '']) !!}
+            <div class="col-md-4 col-xs-6">
+                <input type="text" class="form-control" name="date_filter" id="date_filter"/>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 form-group">
-                {!! Form::label('to','To',['class' => 'control-label']) !!}
-                {!! Form::text('to', old('to', Request::get('to', date('m/d/Y'))), ['readonly'=>'true','onkeydown'=>'return false', 'class' => 'form-control date', 'placeholder' => '']) !!}
+            <div class="col-md-2 col-xs-6">
+                <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" /> &nbsp;&nbsp;&nbsp;
+                {!! Form::button('Print Report', ['onclick' => 'window.print()', 'class' => 'btn btn-primary']) !!}
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <label class="control-label">&nbsp;</label><br>
-                {!! Form::submit('Generate Report',['class' => 'btn btn-primary']) !!} &nbsp;&nbsp;&nbsp;&nbsp; {!! Form::button('Print Report', ['onclick' => 'window.print()', 'class' => 'btn btn-success']) !!}  
-            </div>
+            
         </div>
     {!! Form::close() !!}
     <br>
@@ -41,7 +32,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <canvas id="worktypeChart" </canvas>
+                    <canvas id="worktypeChart"> </canvas>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
@@ -77,7 +68,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <canvas id="populationChart" </canvas>
+                    <canvas id="populationChart"> </canvas>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
@@ -111,7 +102,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <canvas id="caseloadChart" </canvas>
+                    <canvas id="caseloadChart"> </canvas>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
@@ -139,21 +130,59 @@
 
 @section('javascript')
     @parent
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+    <!-- Include Required Prerequisites -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
-    <script>
-        $('.date').datepicker({
-            autoclose: true,
-            dateFormat: "{{ config('app.date_format_js') }}"
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
+
+    <script type="text/javascript">
+        $(function () {
+            let dateInterval = getQueryParameter('date_filter');
+            let start = moment().startOf('isoWeek');
+            let end = moment().endOf('isoWeek');
+            if (dateInterval) {
+                dateInterval = dateInterval.split(' - ');
+                start = dateInterval[0];
+                end = dateInterval[1];
+            }
+            $('#date_filter').daterangepicker({
+                "showDropdowns": true,
+                "showWeekNumbers": true,
+                "alwaysShowCalendars": true,
+                startDate: start,
+                endDate: end,
+                locale: {
+                    format: 'MM/DD/YY',
+                    firstDay: 1,
+                },
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+                    'This Year': [moment().startOf('year'), moment().endOf('year')],
+                    'Last Year': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
+                    'All time': [moment().subtract(30, 'year').startOf('month'), moment().endOf('month')],
+                }
+            });
         });
+        function getQueryParameter(name) {
+            const url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
     </script>
-    <!-- tooltip script -->
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip(); 
-        });
-    </script>
+
     <!-- Chartjs script -->
     <script>
         var workTypeData = {!! json_encode($workTypeData)  !!};

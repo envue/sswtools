@@ -10,9 +10,17 @@ class TimeReportsController extends Controller
 {
     public function index(Request $r)
     {
-        $from = Carbon::parse($r->query('from', Carbon::now()->subDays(30)));
-        $to   = Carbon::parse($r->query('to', Carbon::now()))->endOfDay();
-
+        if (isset($r->date_filter)) {
+            $parts = explode(' - ' , $r->date_filter);
+            $from = Carbon::parse($parts[0])->startOfDay();
+            $to = Carbon::parse($parts[1])->endOfDay();
+        } else {
+            $carbon_date_from = new Carbon('last Monday');
+            $from = $carbon_date_from->startOfDay();
+            $carbon_date_to = new Carbon('this Sunday');
+            $to = $carbon_date_to->endOfDay();
+        }
+    
         $time_entries = TimeEntry::with('work_type')
             ->whereBetween('start_time', [$from, $to])
             ->get();
