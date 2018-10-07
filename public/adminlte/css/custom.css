@@ -34,17 +34,7 @@ ul.select2-results__options::-webkit-scrollbar-track {
     width: 250px;
     }
 
-/* CSS for User Guiding Button */
-@media (max-width: 767px) {
-    div.sc-jlyJG.dtPwid {
-        display: none!important;
-    }
-}
-.dtPwid {
-    box-shadow: none!important;
-}
-
-/* CCS for bootstrap datatables
+/* CCS for bootstrap datatables*/
 
 .btn-group {
     float: right!important;
@@ -56,6 +46,7 @@ div.dataTables_filter {
 }
 #DataTables_Table_0_length {
     display: inline-block!important;
+    margin-right: 10px;
 }
 
 textarea#notes.form-control {
@@ -63,6 +54,5 @@ textarea#notes.form-control {
 }
 
 table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
-    background-color: #B0BED9!important;
+    background-color: rgb(206, 101, 101)!important;
 }
-*/
