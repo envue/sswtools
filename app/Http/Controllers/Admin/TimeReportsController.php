@@ -22,12 +22,13 @@ class TimeReportsController extends Controller
         }
     
         $time_entries = TimeEntry::with('work_type')
-            ->whereBetween('start_time', [$from, $to])
-            ->get();
+            ->whereBetween('start_time', [$from, $to]);
+
+        $time_entries_work_type = $time_entries->get();
 
         $work_type_time = [];
         
-        foreach ($time_entries as $time_entry) {
+        foreach ($time_entries_work_type as $time_entry) {
             $begin = Carbon::parse($time_entry->start_time, 'Europe/Vilnius');
             $end   = Carbon::parse($time_entry->end_time, 'Europe/Vilnius');
             $diff  = $begin->diffInMinutes($end);
@@ -42,7 +43,7 @@ class TimeReportsController extends Controller
         }
 
         
-        $time_entries_populations = TimeEntry::whereBetween('start_time', [$from, $to])
+        $time_entries_populations = $time_entries
             ->whereNotNull ('population_type')
             ->where('population_type', '!=' , '0')
             ->get();
@@ -63,7 +64,7 @@ class TimeReportsController extends Controller
             }            
         }
 
-        $time_entries_caseload = TimeEntry::whereBetween('start_time', [$from, $to])
+        $time_entries_caseload = $time_entries
             ->whereNotNull ('caseload')
             ->where('caseload', '!=' , '0')
             ->get();

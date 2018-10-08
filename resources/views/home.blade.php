@@ -186,7 +186,7 @@
             <div class="box box-default">
             <div class="box-header with-border">
             <i class="fa fa-wordpress"></i>
-              <h3 class="box-title">Recent Blog Posts</h3>
+              <h3 class="box-title">Latest Blog Posts</h3>
                 <div class="box-tools pull-right">
                     <!-- Buttons, labels, and many other things can be placed here! -->
                     <a class="btn btn-box-tool" href="https://schoolsocialwork.net" target="_blank">View All</a>

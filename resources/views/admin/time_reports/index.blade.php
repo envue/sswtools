@@ -6,10 +6,10 @@
 
     {!! Form::open(['method' => 'get']) !!}
         <div class="row">
-            <div class="col-md-4 col-xs-6">
+            <div class="col-md-4 col-xs-5">
                 <input type="text" class="form-control" name="date_filter" id="date_filter"/>
             </div>
-            <div class="col-md-2 col-xs-6">
+            <div class="col-md-8 col-xs-7">
                 <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" /> &nbsp;&nbsp;&nbsp;
                 {!! Form::button('Print Report', ['onclick' => 'window.print()', 'class' => 'btn btn-primary']) !!}
             </div>
