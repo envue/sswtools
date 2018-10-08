@@ -4,7 +4,7 @@
        style="font-size: 16px;">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">
-           <strong>SSWT</strong></span>
+           <strong>SSW</strong></span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
            <strong>SSW</strong>Tools</span>
