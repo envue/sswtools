@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <a href="{{ url('/') }}"
                class="navbar-brand">
-                @lang('quickadmin.quickadmin_title')
+                SSW Tools
             </a>
         </div>
         <a href="javascript:;"
