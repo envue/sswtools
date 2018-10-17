@@ -38,7 +38,7 @@ trait FilterByUser
                 $addScope = true;
             }
 
-            if ($currentUser->role->id == 5) {
+            if ($currentUser->role->id == 5 || $currentUser->role->id == 9) {
                 if ($addScope) {
                     if (((new self)->getTable()) == 'teams') {
                         static::addGlobalScope('created_by_team_id', function (Builder $builder) use ($currentUser) {

@@ -10,7 +10,7 @@
                 <input type="text" class="form-control" name="date_filter" id="date_filter"/>
             </div>
             <div class="col-md-4 col-xs-12">
-                {!! Form::select('user_id', $users, old('user_id', Request::get('user_id')), ['class' => 'form-control select2', 'placeholder' => 'Select User']) !!}
+                {!! Form::select('user_id', $users, old('user_id', Request::get('user_id')), ['class' => 'form-control select2', 'placeholder' => 'All Team Members']) !!}
             </div>
             <div class="col-md-4 col-xs-12">
                 <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" /> &nbsp;&nbsp;&nbsp;
