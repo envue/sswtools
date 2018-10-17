@@ -82,6 +82,13 @@
                             <i class="fa fa-line-chart"></i>
                             <span>Student Report</span>
                         </a>
+                    </li>@endcan
+                    @can('user_access')
+                    <li>
+                        <a href="{{ route('admin.time_reports_user.index') }}">
+                            <i class="fa fa-line-chart"></i>
+                            <span>Team Member Report</span>
+                        </a>
                     </li>@endcan 
                 </ul>
             </li>@endcan
