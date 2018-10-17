@@ -27,7 +27,7 @@ class TimeReportsUserController extends Controller
             $carbon_date_to = new Carbon('this Sunday');
             $to = $carbon_date_to->endOfDay();
         }
-    
+        
         $time_entries = TimeEntry::with('work_type')
             ->whereHas('created_by', function($q) use ($userId) {
                 $q->where('id', $userId);
