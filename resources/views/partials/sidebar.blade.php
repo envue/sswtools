@@ -83,7 +83,7 @@
                             <span>Student Report</span>
                         </a>
                     </li>@endcan
-                    @can('user_access')
+                    @can('user_delete')
                     <li>
                         <a href="{{ route('admin.time_reports_user.index') }}">
                             <i class="fa fa-line-chart"></i>
