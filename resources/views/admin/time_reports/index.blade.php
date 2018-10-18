@@ -6,10 +6,14 @@
 
     {!! Form::open(['method' => 'get']) !!}
         <div class="row">
-            <div class="col-md-4 col-xs-5">
+            <div class="col-md-4 col-xs-12">
                 <input type="text" class="form-control" name="date_filter" id="date_filter"/>
             </div>
-            <div class="col-md-8 col-xs-7">
+            @can('user_access')
+            <div class="col-md-4 col-xs-12">
+                {!! Form::select('user_id', $users, old('user_id', Request::get('user_id')), ['class' => 'form-control select2', 'placeholder' => 'All Team Members']) !!}
+            </div>@endcan
+            <div class="col-md-4 col-xs-12">
                 <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" /> &nbsp;&nbsp;&nbsp;
                 {!! Form::button('Print Report', ['onclick' => 'window.print()', 'class' => 'btn btn-primary']) !!}
             </div>

@@ -5,11 +5,18 @@ use App\TimeEntry;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class TimeReportsController extends Controller
 {
     public function index(Request $r)
     {
+        if (! Gate::allows('report_access')) {
+            return abort(401);
+        }
+        $users = \App\User::get()->pluck('name', 'id');
+
+        $userId = $r->query('user_id');
         if (isset($r->date_filter)) {
             $parts = explode(' - ' , $r->date_filter);
             $from = Carbon::parse($parts[0])->startOfDay();
@@ -20,9 +27,17 @@ class TimeReportsController extends Controller
             $carbon_date_to = new Carbon('this Sunday');
             $to = $carbon_date_to->endOfDay();
         }
-    
-        $time_entries = TimeEntry::with('work_type')
+        
+        if (!empty($r->user_id)) {
+            $time_entries = TimeEntry::with('work_type')
+                ->whereHas('created_by', function($q) use ($userId) {
+                    $q->where('id', $userId);
+                })
+                ->whereBetween('start_time', [$from, $to]);
+        } else {
+            $time_entries = TimeEntry::with('work_type')
             ->whereBetween('start_time', [$from, $to]);
+        }
 
         $time_entries_work_type = $time_entries->get();
 
@@ -102,6 +117,7 @@ class TimeReportsController extends Controller
         $caseloadTypeMinutes = array_sum($caseloadTypeData);
 
         return view('admin.time_reports.index', compact(
+            'users',
             'population_type_time',
             'caseload_time',
             'work_type_time',

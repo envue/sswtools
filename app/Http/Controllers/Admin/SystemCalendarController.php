@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\UpdateTimeEntriesRequest;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class SystemCalendarController extends Controller
@@ -29,7 +30,7 @@ class SystemCalendarController extends Controller
         $created_by_teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         
-        return view('admin.calendar', compact('studentTest', 'work_types', 'work_types_descriptions','students', 'created_bies', 'created_by_teams'));
+        return view('admin.calendar', compact('work_types', 'work_types_descriptions','students', 'created_bies', 'created_by_teams'));
     }
 
     /**
@@ -39,6 +40,7 @@ class SystemCalendarController extends Controller
     {  
         $time_entries  = \App\TimeEntry::with('work_type')
             ->with('student')
+            ->where('created_by_id', Auth::User()->id)
             ->get();
         
         $events = []; 

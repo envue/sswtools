@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"/>
 
 <meta name="csrf-token" content="{{ csrf_token() }}"> 
-<h3 class="page-title">Calendar</h3>
+<h3 class="page-title">My Calendar</h3>
 
 <div class="panel panel-default">
     <div id='calendar'></div>
