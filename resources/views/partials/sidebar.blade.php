@@ -85,7 +85,7 @@
                     </li>@endcan
                     @can('user_delete')
                     <li>
-                        <a href="{{ route('admin.time_reports_user.index') }}">
+                        <a href="{{ route('admin.time_reports_long.index') }}">
                             <i class="fa fa-line-chart"></i>
                             <span>Team Member Report</span>
                         </a>
