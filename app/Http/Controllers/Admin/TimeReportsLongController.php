@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 
-class TimeReportsUserController extends Controller
+class TimeReportsLongController extends Controller
 {
     public function index(Request $r)
     {
@@ -116,7 +116,7 @@ class TimeReportsUserController extends Controller
         $populationTypeMinutes = array_sum($populationTypeData);
         $caseloadTypeMinutes = array_sum($caseloadTypeData);
 
-        return view('admin.time_reports_user.index', compact(
+        return view('admin.time_reports_long.index', compact(
             'users',
             'population_type_time',
             'caseload_time',

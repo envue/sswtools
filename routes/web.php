@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('time_entries_mass_destroy', ['uses' => 'Admin\TimeEntriesController@massDestroy', 'as' => 'time_entries.mass_destroy']);
     Route::resource('time_reports', 'Admin\TimeReportsController');
     Route::resource('time_reports_student', 'Admin\TimeReportsStudentController');
-    Route::resource('time_reports_user', 'Admin\TimeReportsUserController');
+    Route::resource('time_reports_long', 'Admin\TimeReportsLongController');
     Route::resource('users', 'Admin\UsersController');
     Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
     Route::resource('teams', 'Admin\TeamsController');

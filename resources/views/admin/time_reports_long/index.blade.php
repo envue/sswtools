@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3 class="page-title">Team Member Report</h3>
+<h3 class="page-title">longitudinal Time Report</h3>
 
     {!! Form::open(['method' => 'get']) !!}
         <div class="row">

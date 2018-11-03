@@ -182,6 +182,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
@@ -189,6 +190,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        
         
         /*
          * Application Service Providers...
