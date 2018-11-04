@@ -146,7 +146,7 @@
             <div class="box box-default">
             <div class="box-header with-border">
               <i class="fa fa-comments-o"></i>
-              <h3 class="box-title">Latest SSW Network Discussions</h3>
+              <h3 class="box-title">Latest Community Discussions</h3>
               <div class="box-tools pull-right">
                     <!-- Buttons, labels, and many other things can be placed here! -->
                     <a class="btn btn-box-tool" href="https://schoolsocialworkers.mn.co" target="_blank">View All</a>
