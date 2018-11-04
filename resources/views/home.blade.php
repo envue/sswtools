@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @php
-        $content = 'https://schoolsocialwork.net/feed/';
-        $articles = simplexml_load_file($content);      
+        $content1 = 'https://schoolsocialwork.net/feed/';
+        $articles = simplexml_load_file($content1);
+        $content2 = 'https://zapier.com/engine/rss/2242185/sswn/';
+        $posts = simplexml_load_file($content2);     
 @endphp
 
 @section('content')
@@ -140,6 +142,68 @@
                 </div>
             </div>
             <!-- /.box -->
+            
+            <div class="box box-default">
+            <div class="box-header with-border">
+              <i class="fa fa-comments-o"></i>
+              <h3 class="box-title">Latest SSW Network Discussions</h3>
+            </div>
+            <div class="box-body chat" id="chat-box">
+                <!-- rss ssw network posts -->
+                @foreach($posts->channel->item as $item)
+                <div class="item">
+                    <img src="{{$item->enclosure['url']}}" alt="user image" class="default">
+
+                    <p class="message">
+                    <a href="{{$item->link}}" class="name" target="_blank">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{\Carbon\Carbon::parse($item->pubDate)->format('m/d/y')}}</small>
+                        {{$item->children('http://purl.org/dc/elements/1.1/')->creator}}
+                    </a>
+                    {{substr(html_entity_decode($item->description), 0, 140)}}...<a href="{{$item->link}}" target="_blank">Read More</a>
+                    </p>
+                </div>
+                <!-- /.item -->
+                @endforeach
+            </div>
+            <!-- /.chat -->
+          </div>
+          <!-- /.box-->   
+        </div>
+        <!-- /. Column -->
+
+        <div class = "col-sm-12 col-md-4">
+            <div class="box box-default">
+            <div class="box-header with-border">
+            <i class="fa fa-wordpress"></i>
+              <h3 class="box-title">Latest Blog Posts</h3>
+                <div class="box-tools pull-right">
+                    <!-- Buttons, labels, and many other things can be placed here! -->
+                    <a class="btn btn-box-tool" href="https://schoolsocialwork.net" target="_blank">View All</a>
+                    </div>
+                    <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <ul class="products-list product-list-in-box">
+                @foreach($articles->channel->item as $item) 
+                <li class="item">
+                  <div class="product-img">
+                    <img src="{{$item->children( 'media', True )->content->attributes()['url']}}" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="{{$item->link}}" class="product-title" target="_blank" >{{$item->title}}</a>
+                    <span class="product-description">
+                          {{html_entity_decode($item->description)}}
+                        </span>
+                  </div>
+                </li>
+                <!-- /.item -->
+                @endforeach
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
             <!-- Recent Time Entries Table -->
             <div class="box box-default">
                 <div class="box-header with-border">
@@ -179,42 +243,7 @@
                     </table>
                 </div>
             </div>  
-            <!-- /. Recent time entries table -->    
-        </div>
-        <!-- /. Column -->
-        <div class = "col-sm-12 col-md-4">
-            <div class="box box-default">
-            <div class="box-header with-border">
-            <i class="fa fa-wordpress"></i>
-              <h3 class="box-title">Latest Blog Posts</h3>
-                <div class="box-tools pull-right">
-                    <!-- Buttons, labels, and many other things can be placed here! -->
-                    <a class="btn btn-box-tool" href="https://schoolsocialwork.net" target="_blank">View All</a>
-                    </div>
-                    <!-- /.box-tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <ul class="products-list product-list-in-box">
-                @foreach($articles->channel->item as $item) 
-                <li class="item">
-                  <div class="product-img">
-                    <img src="{{$item->children( 'media', True )->content->attributes()['url']}}" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="{{$item->link}}" class="product-title" target="_blank" >{{$item->title}}</a>
-                    <span class="product-description">
-                          {{html_entity_decode($item->description)}}
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                @endforeach
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+            <!-- /. Recent time entries table --> 
         </div>
         <!-- /. Column -->
     </div>
@@ -228,6 +257,7 @@
 <script src="{{ url('adminlte/plugins/datetimepicker/moment-with-locales.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-scroll/1.3.2/slimscroll.min.js"></script>
 
 <script>
 // Datatables.net options for student data table
@@ -550,4 +580,3 @@ $(document).ready(function(){
     });
 </script>
 @endsection
-
