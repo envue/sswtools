@@ -156,7 +156,11 @@
                 <!-- rss ssw network posts -->
                 @foreach($posts->channel->item as $item)
                 <div class="item">
-                    <img src="{{$item->enclosure['url']}}" alt="user image" class="default">
+                    <img src="@if(!empty($item->enclosure['url']))
+                                    {{$item->enclosure['url']}}
+                                @else
+                                https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp
+                                @endif" alt="user image" class="default">
 
                     <p class="message">
                     <a href="{{$item->link}}" class="name" target="_blank">
