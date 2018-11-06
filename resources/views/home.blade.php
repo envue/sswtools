@@ -159,7 +159,7 @@
                     <img src="@if(!empty($item->enclosure['url']))
                                     {{$item->enclosure['url']}}
                                 @else
-                                https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp
+                                https://secure.gravatar.com/avatar/f76edb7eda7cdc05c4215023d294ce9d?s=50&d=mm&r=pg
                                 @endif" alt="user image" class="default">
 
                     <p class="message">

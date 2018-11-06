@@ -123,7 +123,7 @@ class User extends Authenticatable
             $avatar = $d->{'entry'}->{'gphoto$thumbnail'}->{'$t'}; 
             }
             else {
-                $avatar = "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y";
+                $avatar = "https://secure.gravatar.com/avatar/f76edb7eda7cdc05c4215023d294ce9d?s=50&d=mm&r=pg";
             };
     
     return $avatar;
