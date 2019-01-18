@@ -6,7 +6,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-            <img src="{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
+            <img src="https://secure.gravatar.com/avatar/f76edb7eda7cdc05c4215023d294ce9d?s=50&d=mm&r=pg" class="img-circle" alt="User Image">
 
             </div>
             <div class="pull-left info">
