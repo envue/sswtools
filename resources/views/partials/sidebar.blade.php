@@ -190,14 +190,6 @@
                                     <span>@lang('quickadmin.time-work-types.title')</span>
                                 </a>
                             </li>@endcan
-
-                            @can('time_project_access')
-                            <li>
-                                <a href="{{ route('admin.time_projects.index') }}">
-                                    <i class="fa fa-users"></i>
-                                    <span>@lang('quickadmin.time-projects.title')-placeholder</span>
-                                </a>
-                            </li>@endcan
                         </ul>
                     </li>@endcan
                     
