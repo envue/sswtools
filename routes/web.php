@@ -58,8 +58,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('content_pages_mass_destroy', ['uses' => 'Admin\ContentPagesController@massDestroy', 'as' => 'content_pages.mass_destroy']);
     Route::resource('time_work_types', 'Admin\TimeWorkTypesController');
     Route::post('time_work_types_mass_destroy', ['uses' => 'Admin\TimeWorkTypesController@massDestroy', 'as' => 'time_work_types.mass_destroy']);
-    Route::resource('time_projects', 'Admin\TimeProjectsController');
-    Route::post('time_projects_mass_destroy', ['uses' => 'Admin\TimeProjectsController@massDestroy', 'as' => 'time_projects.mass_destroy']);
     Route::resource('user_profiles', 'Admin\UserProfilesController');
     Route::post('user_profiles_mass_destroy', ['uses' => 'Admin\UserProfilesController@massDestroy', 'as' => 'user_profiles.mass_destroy']);
     Route::post('user_profiles_restore/{id}', ['uses' => 'Admin\UserProfilesController@restore', 'as' => 'user_profiles.restore']);

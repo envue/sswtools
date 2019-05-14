@@ -243,7 +243,7 @@ $('#students_table').DataTable({
 $(document).ready(function(){
 
     // Send user data to Convertfox
-    convertfox.identify("{!! $userID !!}", {
+    gist.identify("{!! $userID !!}", {
         email: "{!! $userEmail !!}",
         name: "{!! $userName !!}",
         role: "{!! $userRole !!}",
