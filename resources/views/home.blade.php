@@ -242,12 +242,13 @@ $('#students_table').DataTable({
 <script>
 $(document).ready(function(){
 
-    // Send user data to Convertfox
+    // Send user data to Gist
     gist.identify("{!! $userID !!}", {
         email: "{!! $userEmail !!}",
         name: "{!! $userName !!}",
         role: "{!! $userRole !!}",
-        team: "{!! $userTeam !!}"
+        team: "{!! $userTeam !!}",
+        last_app_use: "{!! time() !!}"
     });
     
     // Full calendar JS and Options

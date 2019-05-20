@@ -3,12 +3,6 @@
 
 <head>
     @include('partials.head')
-    <!-- Hide convertfox and user guiding widgets -->
-    <style> 
-        .convertfox-chat, #__userGuiding__Root #reusable-button-wrapper {
-                display:none!important;
-            }
-    </style>
 </head>
 
 <body class="hold-transition login-page">
