@@ -35,7 +35,7 @@ class HomeController extends Controller
         $userEmail = \Auth::user()->email;
         $userName = \Auth::user()->name;
         $userRole = \Auth::user()->role->title;
-        $userTeam = isset(\Auth::user()->team->name) ? : "";
+        $userTeam = isset(\Auth::user()->team->name) ? : "null";
         $timeEntriesAll = \App\TimeEntry::whereHas('created_by', function($q) use ($userId) {
             $q->where('id', $userId);
         });
