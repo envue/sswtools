@@ -248,7 +248,7 @@ $(document).ready(function(){
         name: "{!! $userName !!}",
         role: "{!! $userRole !!}",
         team: "{!! $userTeam !!}",
-        last_app_use: "{!! time() !!}"
+        last_app_use_at: {!! time() !!}
     });
     
     // Full calendar JS and Options
