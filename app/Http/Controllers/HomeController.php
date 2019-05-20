@@ -30,12 +30,13 @@ class HomeController extends Controller
         $timeentries = \App\TimeEntry::with('work_type')->latest()->limit(5)->get();
         $students_list = \App\Student::all(); 
 
-        //variables for Convertfox script to identify users     
+        //variables for Gist script to identify users     
         $userID = \Auth::user()->id;
         $userEmail = \Auth::user()->email;
         $userName = \Auth::user()->name;
         $userRole = \Auth::user()->role->title;
         $userTeam = isset(\Auth::user()->team->name) ? : "";
+        $timeEntriesAll = \App\TimeEntry::all();
 
         //chart time data for last 30 days
         $time_entries = \App\TimeEntry::with('work_type')
@@ -78,6 +79,7 @@ class HomeController extends Controller
      
         return view('home', compact(
             'timeentries',
+            'timeEntriesAll',
             'students_list', 
             'userID', 
             'userEmail', 
