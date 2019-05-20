@@ -37,7 +37,7 @@ class HomeController extends Controller
         $userRole = \Auth::user()->role->title;
         $userTeam = isset(\Auth::user()->team->name) ? : "null";
         $timeEntriesAll = \App\TimeEntry::whereHas('created_by', function($q) use ($userId) {
-            $q->where('id', $userId);
+            $q->where('id', $userId)->get();
         });
 
         //chart time data for last 30 days
