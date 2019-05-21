@@ -249,7 +249,7 @@ $(document).ready(function(){
         role: "{!! $userRole !!}",
         team: "{!! $userTeam !!}",
         last_app_use: {!! time() !!},
-        time_entries: {!! count($timeEntriesAll) !!}
+        time_entries: {!! $timeEntriesCount !!},
     });
     
     // Full calendar JS and Options

@@ -35,8 +35,9 @@ class HomeController extends Controller
         $userEmail = \Auth::user()->email;
         $userName = \Auth::user()->name;
         $userRole = \Auth::user()->role->title;
-        $userTeam = isset(\Auth::user()->team->name) ? : "null";
+        $userTeam = isset(\Auth::user()->team->name) ? : null;
         $timeEntriesAll = \App\TimeEntry::all();
+        $timeEntriesCount = count($timeEntriesAll);
 
         //chart time data for last 30 days
         $time_entries = \App\TimeEntry::with('work_type')
@@ -79,7 +80,7 @@ class HomeController extends Controller
      
         return view('home', compact(
             'timeentries',
-            'timeEntriesAll',
+            'timeEntriesCount',
             'students_list', 
             'userID', 
             'userEmail', 
