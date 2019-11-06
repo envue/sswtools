@@ -50,3 +50,9 @@
 </script>
 <!-- end Gist JS code-->
 
+<!--start Feedier Code-->
+<div class="feedier-widget" data-email="{!! $userEmail !!}" data-type="engager" data-layout="horizontal" data-shake="true" data-position="left" data-in-site="true" data-carrier-id="11978" data-key="zCLxMbCQeJEwPNWFX4QDOU4eVPLm8yhX"></div>
+
+<!-- Include this line only one time, also if you have multiple widgets on the current page -->
+<script src="https://feedier.com/js/widgets/widgets.min.js" type="text/javascript" async></script>
+<!--end Feeder Code-->
