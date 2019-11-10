@@ -44,7 +44,7 @@
       
     <div class = "row">
         <div class = "col-sm-12 col-md-8">
-            <div class="box box-primary">
+            <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title">Time by Work Type</h3>
                     <div class="box-tools pull-right">
@@ -80,7 +80,7 @@
             <!-- /.box -->
         </div>
         <div class = "col-sm-12 col-md-4">
-            <div class="box box-danger">
+            <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title">Time by Population</h3>
                     <div class="box-tools pull-right">
@@ -114,7 +114,7 @@
                 <!-- box-footer -->
             </div>
             <!-- /.box -->
-            <div class="box box-info">
+            <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title">Caseload vs. Non-Caseload</h3>
                     <div class="box-tools pull-right">
