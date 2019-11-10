@@ -37,16 +37,12 @@ class TimeReportsController extends Controller
             $time_entries->whereHas('created_by', function($q) use ($userId) {
                     $q->where('id', $userId);
             });
-<<<<<<< HEAD
         }
-        /*
+        
         if (!empty($r->caseload_filter)) {
             $time_entries->where('caseload', '=' , $caseload_filter);
         }
-        */
-=======
-        };   
->>>>>>> 9ecd01e5c1e7e9657d8703cc85bd601bc5387a6b
+        
 
         $time_entries_work_type = $time_entries->get();
 
