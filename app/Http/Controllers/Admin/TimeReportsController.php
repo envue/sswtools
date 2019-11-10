@@ -45,7 +45,7 @@ class TimeReportsController extends Controller
         $time_entires = TimeEntry::with('work_type')
             ->whereBetween('start_time', [$from, $to]);
 
-        if ($r->has('user_id')) {
+        if ($r->filled('user_id')) {
             $time_entries->whereHas('created_by', function($q) use ($userId) {
                     $q->where('id', $userId);
             });
