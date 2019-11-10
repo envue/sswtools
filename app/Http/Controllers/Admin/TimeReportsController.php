@@ -17,6 +17,7 @@ class TimeReportsController extends Controller
         $users = \App\User::get()->pluck('name', 'id');
 
         $userId = $r->query('user_id');
+        $caseload_filter = $r->query('caseload_filter');
 
         if (isset($r->date_filter)) {
             $parts = explode(' - ' , $r->date_filter);
@@ -29,19 +30,6 @@ class TimeReportsController extends Controller
             $to = $carbon_date_to->endOfDay();
         }
         
-        /* Old Working Code 
-        if (!empty($r->user_id)) {
-            $time_entries = TimeEntry::with('work_type')
-                ->whereHas('created_by', function($q) use ($userId) {
-                    $q->where('id', $userId);
-                })
-                ->whereBetween('start_time', [$from, $to]);
-        } else {
-            $time_entries = TimeEntry::with('work_type')
-            ->whereBetween('start_time', [$from, $to]);
-        }
-        */
-
         $time_entries = TimeEntry::with('work_type')
             ->whereBetween('start_time', [$from, $to]);
 
@@ -49,8 +37,10 @@ class TimeReportsController extends Controller
             $time_entries->whereHas('created_by', function($q) use ($userId) {
                     $q->where('id', $userId);
             });
-        }    
-    
+
+        if (!empty($r->caseload_filter)) {
+            $time_entries->where('caseload', $r->caseload_filter);
+        };   
 
         $time_entries_work_type = $time_entries->get();
 
