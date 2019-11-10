@@ -39,7 +39,7 @@ class TimeReportsController extends Controller
             });
 
         if (!empty($r->caseload_filter)) {
-            $time_entries->where('caseload', $r->caseload_filter);
+            $time_entries->where('caseload', '=' , $caseload_filter);
         };   
 
         $time_entries_work_type = $time_entries->get();
