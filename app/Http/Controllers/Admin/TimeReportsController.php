@@ -42,7 +42,7 @@ class TimeReportsController extends Controller
         }
         */
 
-        $time_entires = TimeEntry::with('work_type')
+        $time_entries = TimeEntry::with('work_type')
             ->whereBetween('start_time', [$from, $to]);
 
         if (!empty($r->user_id)) {
