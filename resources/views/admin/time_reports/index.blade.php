@@ -13,11 +13,6 @@
             <div class="col-md-4 col-xs-12">
                 {!! Form::select('user_id', $users, old('user_id', Request::get('user_id')), ['class' => 'form-control select2', 'placeholder' => 'All Team Members']) !!}
             </div>@endcan
-            <!--
-            <div class="col-md-4 col-xs-12">
-                {!! Form::select('caseload_filter', array('Yes' => 'Yes', 'No' => 'No', 'Mixed' => 'Mixed')), ['class' => 'form-control select2', 'placeholder' => 'Any']) !!}
-            </div>
-            -->
             <div class="col-md-4 col-xs-12">
                 <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" /> &nbsp;&nbsp;&nbsp;
                 {!! Form::button('Print Report', ['onclick' => 'window.print()', 'class' => 'btn btn-primary']) !!}
