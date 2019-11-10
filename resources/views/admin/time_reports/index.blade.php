@@ -6,16 +6,27 @@
 
     {!! Form::open(['method' => 'get']) !!}
         <div class="row">
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-3 col-xs-12">
+                {!! Form::label('dates', 'Dates') !!}
                 <input type="text" class="form-control" name="date_filter" id="date_filter"/>
             </div>
             @can('user_access')
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-3 col-xs-12">
+                {!! Form::label('team_member', 'Team Member') !!}
                 {!! Form::select('user_id', $users, old('user_id', Request::get('user_id')), ['class' => 'form-control select2', 'placeholder' => 'All Team Members']) !!}
             </div>@endcan
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-2 col-xs-12">
+                {!! Form::label('caseload', 'Caseload Type') !!}
+                {!! Form::select('caseload_filter', ['Yes' => 'Yes', 'No' => 'No', 'Mixed' => 'Mixed'], old('caseload_filter', Request::get('caseload_filter')), ['class' => 'form-control select2', 'placeholder' => 'Any']) !!}
+            </div>
+            <div class="col-md-2 col-xs-12">
+                {!! Form::label('population', 'Population Type') !!}
+                {!! Form::select('population_filter', ['GenEd' => 'GenEd', 'SPED' => 'SPED', 'Mixed' => 'Mixed'], old('population_filter', Request::get('population_filter')), ['class' => 'form-control select2', 'placeholder' => 'Any']) !!}
+            </div>
+            <div class="col-md-2 col-xs-12">
+                {!! Form::label('actions', '') !!}<br>
                 <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" /> &nbsp;&nbsp;&nbsp;
-                {!! Form::button('Print Report', ['onclick' => 'window.print()', 'class' => 'btn btn-primary']) !!}
+                {!! Form::button('Print', ['onclick' => 'window.print()', 'class' => 'btn btn-primary']) !!}
             </div>
             
         </div>
