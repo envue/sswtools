@@ -18,6 +18,8 @@ class TimeReportsController extends Controller
 
         $userId = $r->query('user_id');
 
+        $work_types = \App\TimeWorkType::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
         if (isset($r->date_filter)) {
             $parts = explode(' - ' , $r->date_filter);
             $from = Carbon::parse($parts[0])->startOfDay();
@@ -49,6 +51,10 @@ class TimeReportsController extends Controller
             $time_entries->whereHas('created_by', function($q) use ($userId) {
                     $q->where('id', $userId);
             });
+        }
+
+        if (!empty($r->work_type_filter)) {
+            $time_entries->where('work_type_id', '=', $r->work_type_filter);
         }
         
         if (!empty($r->caseload_filter)) {
@@ -141,6 +147,7 @@ class TimeReportsController extends Controller
             'users',
             'population_type_time',
             'caseload_time',
+            'work_types',
             'work_type_time',
             'workTypeData',
             'populationTypeData',

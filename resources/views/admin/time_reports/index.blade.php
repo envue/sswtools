@@ -16,6 +16,15 @@
                 {!! Form::select('user_id', $users, old('user_id', Request::get('user_id')), ['class' => 'form-control select2', 'placeholder' => 'All Team Members']) !!}
             </div>@endcan
             <div class="col-md-2 col-xs-12">
+                {!! Form::label('work_type_filter', 'Work Type', ['class' => 'control-label']) !!}
+                {!! Form::select('work_type_filter', $work_types, old('work_type_filter', Request::get('work_type_filter')), ['class' => 'form-control select2', 'placeholder' => 'All Work Types']) !!}
+                @if($errors->has('work_type_filter'))
+                    <p class="help-block">
+                        {{ $errors->first('work_type_filter') }}
+                    </p>
+                @endif
+            </div>
+            <div class="col-md-2 col-xs-12">
                 {!! Form::label('caseload', 'Caseload Type') !!}
                 {!! Form::select('caseload_filter', ['Yes' => 'Yes', 'No' => 'No', 'Mixed' => 'Mixed'], old('caseload_filter', Request::get('caseload_filter')), ['class' => 'form-control select2', 'placeholder' => 'Any']) !!}
             </div>
