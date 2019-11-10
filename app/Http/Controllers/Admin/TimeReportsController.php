@@ -17,6 +17,7 @@ class TimeReportsController extends Controller
         $users = \App\User::get()->pluck('name', 'id');
 
         $userId = $r->query('user_id');
+
         if (isset($r->date_filter)) {
             $parts = explode(' - ' , $r->date_filter);
             $from = Carbon::parse($parts[0])->startOfDay();
@@ -28,6 +29,7 @@ class TimeReportsController extends Controller
             $to = $carbon_date_to->endOfDay();
         }
         
+        /* Old Working Code 
         if (!empty($r->user_id)) {
             $time_entries = TimeEntry::with('work_type')
                 ->whereHas('created_by', function($q) use ($userId) {
@@ -38,6 +40,17 @@ class TimeReportsController extends Controller
             $time_entries = TimeEntry::with('work_type')
             ->whereBetween('start_time', [$from, $to]);
         }
+        */
+
+        $time_entires = TimeEntry::with('work_type')
+            ->whereBetween('start_time', [$from, $to]);
+
+        if ($r->has('user_id')) {
+            $time_entries->whereHas('created_by', function($q) use ($userId) {
+                    $q->where('id', $userId);
+            });
+        }    
+    
 
         $time_entries_work_type = $time_entries->get();
 
