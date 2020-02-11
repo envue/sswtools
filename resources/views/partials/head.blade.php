@@ -49,10 +49,3 @@
 (function(d,h,w){var gist=w.gist=w.gist||[];gist.methods=['trackPageView','identify','track','setAppId'];gist.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);gist.push(e);return gist;}};for(var i=0;i<gist.methods.length;i++){var c=gist.methods[i];gist[c]=gist.factory(c)}s=d.createElement('script'),s.src="https://widget.getgist.com",s.async=!0,e=d.getElementsByTagName(h)[0],e.appendChild(s),s.addEventListener('load',function(e){},!1),gist.setAppId("arxqgrv9"),gist.trackPageView()})(document,'head',window);
 </script>
 <!-- end Gist JS code-->
-
-<!--start Feedier Code-->
-<div class="feedier-widget" data-type="engager" data-layout="horizontal" data-shake="true" data-position="left" data-in-site="true" data-carrier-id="11978" data-key="zCLxMbCQeJEwPNWFX4QDOU4eVPLm8yhX"></div>
-
-<!-- Include this line only one time, also if you have multiple widgets on the current page -->
-<script src="https://feedier.com/js/widgets/widgets.min.js" type="text/javascript" async></script>
-<!--end Feeder Code-->
