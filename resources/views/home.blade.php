@@ -30,7 +30,7 @@
             <div class="inner">
               <h2 class=home-widget><strong>Calendar</strong></h2>
                 <p>
-                Create/edit time entires
+                Create/edit time entries
                 </p>
             </div>
             <div class="icon">
@@ -70,7 +70,7 @@
             <div class="inner">
               <h2 class=home-widget><strong>Time Table</strong></h2>
                 <p>
-                Search and export time entires
+                Search and export time entries
                 </p>
             </div>
             <div class="icon">
