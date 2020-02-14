@@ -6,12 +6,12 @@
 
     {!! Form::open(['method' => 'get']) !!}
         <div class="row">
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-2 col-xs-12">
                 {!! Form::label('dates', 'Dates') !!}
                 <input type="text" class="form-control" name="date_filter" id="date_filter"/>
             </div>
             @can('user_access')
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-2 col-xs-12">
                 {!! Form::label('team_member', 'Team Member') !!}
                 {!! Form::select('user_id', $users, old('user_id', Request::get('user_id')), ['class' => 'form-control select2', 'placeholder' => 'All Team Members']) !!}
             </div>@endcan
