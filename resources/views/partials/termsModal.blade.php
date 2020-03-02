@@ -67,6 +67,11 @@ We may share <strong>non-personally identifiable information</strong>, such as a
 If you would like to opt out of having this information collected by or submitted to these services, please contact us at scott@envuestudios.com.
 </p>
 <p>
+<strong>Student (Client) Information</strong><br>
+<br>
+The SSW Tools App is not intended for recording and storing personally identifiable or sensitive information about students or clients.
+</p>
+<p>
 <strong>Children Under the Age of 13</strong><br>
 <br>
 The SSW Tools App is not intended for children under 13 years of age. No one under age 13 may provide any personal information to or on the website. We do not knowingly collect personal information from children under 13 years of age. If you are under 13 years of age, do not use or provide any information on this website or on or through any of its features/register on the website. If we learn we have collected or received personal information from a child under 13 years of age without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under 13 years of age, please contact us.
