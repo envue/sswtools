@@ -55,6 +55,7 @@
 {!! Form::close() !!}
 
 @include('partials.javascripts')
+<!-- Disabled Beamer Script 
 <script>
 	var beamer_config = {
 		product_id : "aONXugsr3184", //DO NOT CHANGE: This is your product code on Beamer
@@ -76,6 +77,6 @@
 	};
 </script>
 <script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>
-
+-->
 </body>
 </html>

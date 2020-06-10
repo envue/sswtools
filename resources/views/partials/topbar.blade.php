@@ -31,11 +31,11 @@
                         <span class="title">@lang('quickadmin.qa_logout')</span>
                     </a>
                 </li>
-                
+                <!-- Disabled Beamer Notification Trigger
                 <li class="beamerTrigger pull-right" style="position: relative">
                     <a href="#" title="Notifications"><i class="fa fa-bell-o"></i></a>
                 </li>
-         
+                -->
                 <li class="pull-right">
                     <a href="#" onclick="convertfox.chat('openNewConversation')" title="Message Us"><strong><i class="fa fa-comments-o"></i></strong></a>
                 </li>
