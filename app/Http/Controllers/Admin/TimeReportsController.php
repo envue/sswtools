@@ -31,19 +31,6 @@ class TimeReportsController extends Controller
             $to = $carbon_date_to->endOfDay();
         }
         
-        /* Old Working Code 
-        if (!empty($r->user_id)) {
-            $time_entries = TimeEntry::with('work_type')
-                ->whereHas('created_by', function($q) use ($userId) {
-                    $q->where('id', $userId);
-                })
-                ->whereBetween('start_time', [$from, $to]);
-        } else {
-            $time_entries = TimeEntry::with('work_type')
-            ->whereBetween('start_time', [$from, $to]);
-        }
-        */
-
         $time_entries = TimeEntry::with('work_type')
             ->whereBetween('start_time', [$from, $to]);
 

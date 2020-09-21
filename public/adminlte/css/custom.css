@@ -56,3 +56,14 @@ textarea#notes.form-control {
 table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
     background-color: rgb(206, 101, 101)!important;
 }
+
+/* Product Stash */
+div.notification-dot {
+    margin-top: 0px!important;
+    top: 10px!important;
+    right: 20px!important;
+    font-size: 11px!important;
+}
+.public-releases .r-header {
+    background: #528cbf!important;
+}

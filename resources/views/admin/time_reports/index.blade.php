@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-2 col-xs-12">
                 {!! Form::label('population', 'Population Type') !!}
-                {!! Form::select('population_filter', ['GenEd' => 'GenEd', 'SPED' => 'SPED', 'Mixed' => 'Mixed'], old('population_filter', Request::get('population_filter')), ['class' => 'form-control select2', 'placeholder' => 'Any']) !!}
+                {!! Form::select('population_filter', ['GenEd' => 'GenEd', '504' => '504', 'SPED' => 'SPED', 'Mixed' => 'Mixed'], old('population_filter', Request::get('population_filter')), ['class' => 'form-control select2', 'placeholder' => 'Any']) !!}
             </div>
             <div class="col-md-2 col-xs-12">
                 {!! Form::label('actions', '') !!}<br>

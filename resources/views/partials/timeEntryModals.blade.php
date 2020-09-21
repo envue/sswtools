@@ -66,6 +66,12 @@
                 </div>
                 <div class= "radio-inline">
                     <label>
+                        {!! Form::radio('population_type', '504', false, ['required' => 'required']) !!}
+                        504
+                    </label>
+                </div>
+                <div class= "radio-inline">
+                    <label>
                         {!! Form::radio('population_type', 'GenEd', false, ['required' => 'required']) !!}
                         General Ed
                     </label>
@@ -224,6 +230,12 @@
                         Special Ed
                     </label>
                 </div>
+                <div class= "radio-inline">
+                    <label>
+                        {!! Form::radio('population_type', '504', false, ['required' => 'required']) !!}
+                        504
+                    </label>
+                </div>                
                 <div class= "radio-inline">
                     <label>
                         {!! Form::radio('population_type', 'GenEd', false, ['required' => 'required']) !!}

@@ -61,6 +61,14 @@
             </li>@endcan
                       
             @can('report_access')
+            <li>
+                <a href="{{ route('admin.time_reports.index') }}">
+                    <i class="fa fa-line-chart"></i>
+                    <span>Report</span>
+                </a>
+            </li>
+            
+            <!--Old Reports Menu 
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-bar-chart"></i>
@@ -91,7 +99,8 @@
                         </a>
                     </li>@endcan 
                 </ul>
-            </li>@endcan
+            </li> -->
+            @endcan
             
             
             @can('system_admin_access')
