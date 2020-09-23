@@ -36,6 +36,18 @@
 
 
 <link href="{{ url('adminlte/css/custom.css') }}" rel="stylesheet">
+<style>
+      /* Product Stash */
+div.notification-dot {
+    margin-top: 0px!important;
+    top: 10px!important;
+    right: 20px!important;
+    font-size: 11px!important;
+}
+.public-releases .r-header {
+    background: #528cbf!important;
+}
+</style>
 
 <!-- start Gist JS code-->
 <script>    
