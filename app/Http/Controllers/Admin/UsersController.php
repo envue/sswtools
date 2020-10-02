@@ -172,7 +172,10 @@ class UsersController extends Controller
         }
         
         $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$payments = \App\Payment::where('user_id', $id)->get();$students = \App\Student::where('created_by_id', $id)->get();$time_entries = \App\TimeEntry::where('created_by_id', $id)->get();
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $payments = \App\Payment::where('user_id', $id)->get();
+        $students = \App\Student::where('created_by_id', $id)->get();
+        $time_entries = \App\TimeEntry::where('created_by_id', $id)->get();
 
         $user = User::findOrFail($id);
 

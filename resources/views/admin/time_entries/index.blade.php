@@ -65,6 +65,8 @@
             window.dtDefaultOptions.lengthMenu = [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ];
             window.dtDefaultOptions.pageLength = 25;
             window.dtDefaultOptions.responsive = true;
+            window.dtDefaultOptions.processing = true;
+            window.dtDefaultOptions.serverSide = true;
             window.dtDefaultOptions.order= [[ 1, "desc" ]];
             
             window.dtDefaultOptions.ajax = '{!! route('admin.time_entries.index') !!}';
