@@ -68,9 +68,11 @@
             window.dtDefaultOptions.order= [[ 1, "desc" ]];
             
             window.dtDefaultOptions.ajax = '{!! route('admin.time_entries.index') !!}';
-            window.dtDefaultOptions.columns = [@can('time_entry_delete')
+            window.dtDefaultOptions.columns = [
+                @can('time_entry_delete')
                 {data: 'massDelete', name: 'id', searchable: false, sortable: false},
-                @endcan{data: 'start_time', name: 'start_time'},
+                @endcan
+                {data: 'start_time', name: 'start_time'},
                 {data: 'end_time', name: 'end_time'},
                 {data: 'work_type.name', name: 'work_type.name'},
                 {data: 'population_type', name: 'population_type'},

@@ -156,69 +156,37 @@
 </table>
 </div>
 <div role="tabpanel" class="tab-pane active" id="time_entries">
-<table class="table table-bordered table-striped {{ count($time_entries) > 0 ? 'datatable' : '' }}">
-    <thead>
-        <tr>
-            <th>@lang('quickadmin.time-entries.fields.start-time')</th>
+            <table class="table table-bordered table-striped ajaxTable @can('time_entry_delete') dt-select @endcan">
+                <thead>
+                    <tr>
+                        @can('time_entry_delete')
+                            <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
+                        @endcan
+
+                        <th>@lang('quickadmin.time-entries.fields.start-time')</th>
                         <th>@lang('quickadmin.time-entries.fields.end-time')</th>
                         <th>@lang('quickadmin.time-entries.fields.work-type')</th>
                         <th>@lang('quickadmin.time-entries.fields.population-type')</th>
                         <th>@lang('quickadmin.time-entries.fields.caseload')</th>
+                        @can('student_access')
                         <th>@lang('quickadmin.time-entries.fields.student')</th>
+                        @endcan
                         <th>@lang('quickadmin.time-entries.fields.description')</th>
                         <th>@lang('quickadmin.time-entries.fields.notes')</th>
+                        @can('user_view')
                         <th>@lang('quickadmin.time-entries.fields.created-by')</th>
+                        @endcan
+                        @can('user_delete')
                         <th>@lang('quickadmin.time-entries.fields.created-by-team')</th>
+                        @endcan
                                                 <th>&nbsp;</th>
 
-        </tr>
-    </thead>
+                    </tr>
+                </thead>
+            </table>
 
-    <tbody>
-        @if (count($time_entries) > 0)
-            @foreach ($time_entries as $time_entry)
-                <tr data-entry-id="{{ $time_entry->id }}">
-                    <td field-key='start_time'>{{ $time_entry->start_time }}</td>
-                                <td field-key='end_time'>{{ $time_entry->end_time }}</td>
-                                <td field-key='work_type'>{{ $time_entry->work_type->name or '' }}</td>
-                                <td field-key='population_type'>{{ $time_entry->population_type }}</td>
-                                <td field-key='caseload'>{{ $time_entry->caseload }}</td>
-                                <td field-key='student'>
-                                    @foreach ($time_entry->student as $singleStudent)
-                                        <span class="label label-info label-many">{{ $singleStudent->identifier }}</span>
-                                    @endforeach
-                                </td>
-                                <td field-key='description'>{{ $time_entry->description }}</td>
-                                <td field-key='notes'>{!! $time_entry->notes !!}</td>
-                                <td field-key='created_by'>{{ $time_entry->created_by->name or '' }}</td>
-                                <td field-key='created_by_team'>{{ $time_entry->created_by_team->name or '' }}</td>
-                                                                <td>
-                                    @can('time_entry_view')
-                                    <a href="{{ route('admin.time_entries.show',[$time_entry->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
-                                    @endcan
-                                    @can('time_entry_edit')
-                                    <a href="{{ route('admin.time_entries.edit',[$time_entry->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
-                                    @endcan
-                                    @can('time_entry_delete')
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.time_entries.destroy', $time_entry->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    @endcan
-                                </td>
 
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="15">@lang('quickadmin.qa_no_entries_in_table')</td>
-            </tr>
-        @endif
-    </tbody>
-</table>
+
 </div>
 </div>
 
@@ -228,3 +196,41 @@
         </div>
     </div>
 @stop
+
+@section('javascript') 
+    <script>
+        @can('time_entry_delete')
+            window.route_mass_crud_entries_destroy = '{{ route('admin.time_entries.mass_destroy') }}';
+        @endcan
+        $(document).ready(function () {
+            window.dtDefaultOptions.bAutoWidth = false;
+            window.dtDefaultOptions.lengthMenu = [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ];
+            window.dtDefaultOptions.pageLength = 25;
+            window.dtDefaultOptions.responsive = true;
+            window.dtDefaultOptions.order= [[ 1, "desc" ]];
+            
+            window.dtDefaultOptions.ajax = '{!! route('admin.time_entries.index') !!}';
+            window.dtDefaultOptions.columns = [@can('time_entry_delete')
+                {data: 'massDelete', name: 'id', searchable: false, sortable: false},
+                @endcan{data: 'start_time', name: 'start_time'},
+                {data: 'end_time', name: 'end_time'},
+                {data: 'work_type.name', name: 'work_type.name'},
+                {data: 'population_type', name: 'population_type'},
+                {data: 'caseload', name: 'caseload'},
+                @can('student_access')
+                {data: 'student.identifier', name: 'student.identifier'},
+                @endcan
+                {data: 'description', name: 'description'},
+                {data: 'notes', name: 'notes'},
+                @can('user_view')
+                {data: 'created_by.name', name: 'created_by.name'},
+                @endcan
+                @can('user_delete')
+                {data: 'created_by_team.name', name: 'created_by_team.name'},
+                @endcan
+                {data: 'actions', name: 'actions', searchable: false, sortable: false}
+            ];
+            processAjaxTables();
+        });
+    </script>
+@endsection
