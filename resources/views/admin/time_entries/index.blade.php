@@ -62,7 +62,7 @@
         @endcan
         $(document).ready(function () {
             window.dtDefaultOptions.bAutoWidth = false;
-            window.dtDefaultOptions.lengthMenu = [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ];
+            window.dtDefaultOptions.lengthMenu = [ [10, 25, 50, 100, 200, 300, 400, 500, -1], [10, 25, 50, 100, 200, 300, 400, 500, "All"] ];
             window.dtDefaultOptions.pageLength = 25;
             window.dtDefaultOptions.responsive = true;
             window.dtDefaultOptions.processing = true;
